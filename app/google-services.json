@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "336908985624",
+    "project_id": "spacebuns-kotlin",
+    "storage_bucket": "spacebuns-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336908985624:android:04979cf3131c6dafa6ea6d",
+        "android_client_info": {
+          "package_name": "com.example.spacebunsmobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336908985624-nuc9df0qi6dsc0tda02klh7drd8onojq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl5uLDfs7Su9JiTge9spDRQlrCClRou78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336908985624-nuc9df0qi6dsc0tda02klh7drd8onojq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.spacebunsmobileapp.ui.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.spacebunsmobileapp.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.spacebunsmobileapp.ui.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/rewardFragment"
+        android:name="com.example.spacebunsmobileapp.ui.RewardFragment"
+        android:label="Reward"
+        tools:layout="@layout/fragment_reward" />
+</navigation>
