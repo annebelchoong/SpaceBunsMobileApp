@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
-import com.example.spacebunsmobileapp.data.Friend
 import com.example.spacebunsmobileapp.databinding.FragmentMenuBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
