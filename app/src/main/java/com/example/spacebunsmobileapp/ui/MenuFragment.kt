@@ -28,6 +28,8 @@ class MenuFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
 
+        binding.fabCart.setOnClickListener{ nav.navigate(R.id.cartFragment) }
+
         val adapter = ProductAdapter() {holder, product ->
             holder.binding.root.setOnClickListener {
                 nav.navigate(R.id.productDetailFragment, bundleOf("id" to product.productId))
