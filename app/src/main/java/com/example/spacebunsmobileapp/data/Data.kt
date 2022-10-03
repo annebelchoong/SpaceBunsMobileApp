@@ -7,3 +7,13 @@ import java.util.*
 data class Order(
     var id: String=""
 )
+
+data class Menu(
+    @DocumentId
+    var id: String = "",
+    var cat: String = "",
+    var name: String = "",
+    var desc: String = "",
+    var photo: Blob = Blob.fromBytes(ByteArray(0)),  // empty bytes
+    var date: Date = Date() // current Date
+)
