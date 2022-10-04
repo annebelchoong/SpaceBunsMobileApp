@@ -35,6 +35,7 @@ class CartAdapter (
             holder.binding.lblProductName.text = productLine.productName
             holder.binding.lblQuantity.text = productLine.quantity.toString()
             holder.binding.lblPrice.text = productLine.price.toString()
+            holder.binding.imageView2.setImageBlob(productLine.photo)
 
 //        holder.binding.txtCount.text = "${productLine.count} Order(s)"
 
