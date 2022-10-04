@@ -9,9 +9,9 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.spacebunsadminapp.util.ProductAdapter
-import com.example.spacebunsadminapp.util.cropToBlob
-import com.example.spacebunsadminapp.util.setImageBlob
+import com.example.spacebunsmobileapp.util.ProductAdapter
+import com.example.spacebunsmobileapp.util.cropToBlob
+import com.example.spacebunsmobileapp.util.setImageBlob
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel

@@ -12,7 +12,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.spacebunsadminapp.util.ProductAdapter
+import com.example.spacebunsmobileapp.util.ProductAdapter
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.MENU
 import com.example.spacebunsmobileapp.data.SpaceBunsViewModel

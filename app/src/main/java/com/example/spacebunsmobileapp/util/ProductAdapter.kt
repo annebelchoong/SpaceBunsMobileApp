@@ -1,5 +1,5 @@
 
-package com.example.spacebunsadminapp.util
+package com.example.spacebunsmobileapp.util
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

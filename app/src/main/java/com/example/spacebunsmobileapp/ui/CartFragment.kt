@@ -15,8 +15,6 @@ import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentCartBinding
 import com.example.spacebunsmobileapp.util.CartAdapter
-import com.example.spacebunsmobileapp.util.ProductAdapter
-import com.example.spacebunsmobileapp.util.setImageBlob
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import java.time.LocalTime
