@@ -33,11 +33,11 @@ class HomeFragment : Fragment() {
 //
 //        }
         binding.btn2.setOnClickListener {
-            if (LocalTime.now().isAfter(LocalTime.parse("22:00:00")) && LocalTime.now().isBefore(LocalTime.parse("09:00:00"))) {
+//            if (LocalTime.now().isAfter(LocalTime.parse("22:00:00")) && LocalTime.now().isBefore(LocalTime.parse("09:00:00"))) {
                 nav.navigate(R.id.dateTimeFragment)
-            }else{
-                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
-            }
+//            }else{
+//                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
+//            }
     }
 
 
