@@ -64,7 +64,7 @@ class AccountFragment : Fragment() {
             goToCamera()
         }
 
-        binding.btnLogout.setOnClickListener {
+        binding.btn_logout.setOnClickListener {
             btnLogout()
         }
 
