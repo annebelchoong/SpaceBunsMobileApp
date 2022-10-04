@@ -65,5 +65,10 @@ class ProductViewModel: ViewModel() {
         return getProducts
     }
 
+    //u need to change to user
+    fun delete(id: String, u: String) {
+        CART.document(u).collection("cart").document(id).delete()
+
+    }
 
 }
