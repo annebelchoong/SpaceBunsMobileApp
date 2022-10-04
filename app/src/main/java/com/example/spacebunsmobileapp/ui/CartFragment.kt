@@ -18,6 +18,7 @@ import com.example.spacebunsmobileapp.util.setImageBlob
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
@@ -47,6 +48,9 @@ class CartFragment : Fragment() {
                 Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
             }
         }
+
+        binding.lblDate.text = vm.dateTime.format(DateTimeFormatter.ofPattern("dd MMMM yyyy "))
+        binding.lblTime.text = vm.dateTime.format(DateTimeFormatter.ofPattern("hh:mm a"))
 
 
         return binding.root
