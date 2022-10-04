@@ -47,7 +47,7 @@ class ChangeEmailActivity : AppCompatActivity() {
                             binding.cvChangeEmail.visibility = View.VISIBLE
                         }
                         task.exception is FirebaseAuthInvalidCredentialsException -> {
-                            binding.edtChangeEmailPassword.error = "Password Salah"
+                            binding.edtChangeEmailPassword.error = "Wrong Password"
                             binding.edtChangeEmailPassword.requestFocus()
                         }
                         else -> {
@@ -62,13 +62,13 @@ class ChangeEmailActivity : AppCompatActivity() {
             var newEmail = binding.edtChangeEmail.text.toString()
 
             if (newEmail.isEmpty()){
-                binding.edtChangeEmail.error = "Email Harus Terisi"
+                binding.edtChangeEmail.error = "Email cannot be empty!"
                 binding.edtChangeEmail.requestFocus()
                 return@newEmail
             }
 
             if (!Patterns.EMAIL_ADDRESS.matcher(newEmail).matches()) {
-                binding.edtChangeEmail.error = "Email Tidak Valid"
+                binding.edtChangeEmail.error = "Email is not Valid!"
                 binding.edtChangeEmail.requestFocus()
                 return@newEmail
             }
@@ -76,7 +76,7 @@ class ChangeEmailActivity : AppCompatActivity() {
             user?.let {
                 user.updateEmail(newEmail).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        Toast.makeText(this, "Email Berhasil Diubah", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Email successfully change", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, AccountFragment::class.java))
                         finish()
                     } else {
