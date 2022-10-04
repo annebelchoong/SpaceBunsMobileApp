@@ -21,10 +21,10 @@
         android:label="Menu"
         tools:layout="@layout/fragment_menu" />
     <fragment
-        android:id="@+id/rewardFragment"
+        android:id="@+id/donationFragment"
         android:name="com.example.spacebunsmobileapp.ui.RewardFragment"
         android:label="Reward"
-        tools:layout="@layout/fragment_reward" />
+        tools:layout="@layout/fragment_donation" />
     <fragment
         android:id="@+id/miniDeliveryFragment"
         android:name="com.example.spacebunsmobileapp.ui.MiniDeliveryFragment"

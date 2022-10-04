@@ -39,5 +39,29 @@ class ProductViewModel: ViewModel() {
         CART.document(u.customerId).collection("cart").document(c.productId).set(c)
     }
 
+    suspend fun getUserId(id: String): User? {
+        return CUST // do not have count, only id and name
+            .document(id)
+            .get()
+            .await()
+            .toObject<User>()
+    }
+
+
+    // put u as string first but neet to change to user
+    suspend fun getCartLine(u:String): List<Cart> {
+        val user = getUserId(u)!!
+
+        val getProducts = CART
+            .document(user.customerId)
+            .collection("cart")
+            .get()
+            .await()
+            .toObjects<Cart>()
+
+
+        return getProducts
+    }
+
 
 }

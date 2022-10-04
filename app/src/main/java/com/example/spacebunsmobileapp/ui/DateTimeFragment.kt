@@ -7,15 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
-import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
-import com.example.spacebunsmobileapp.databinding.FragmentPickupBinding
+import com.example.spacebunsmobileapp.databinding.FragmentDateTimeBinding
 
-class PickupFragment : Fragment() {
-    private lateinit var binding: FragmentPickupBinding
+class DateTimeFragment : Fragment() {
+    private lateinit var binding: FragmentDateTimeBinding
     private val nav by lazy { findNavController() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentPickupBinding.inflate(inflater, container, false)
+        binding = FragmentDateTimeBinding.inflate(inflater, container, false)
 
         return binding.root
     }

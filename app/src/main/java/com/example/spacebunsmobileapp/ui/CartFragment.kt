@@ -31,11 +31,11 @@ class CartFragment : Fragment() {
         binding.rvCart.adapter = adapter
         binding.rvCart.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-//        lifecycleScope.launch {
-//            val product = vm.getCartLine(id, "U001")!!
-//            adapter.submitList(product)
-//            binding.lblCount.text = "${product.size} Product(s)"
-//        }
+        lifecycleScope.launch {
+            val product = vm.getCartLine("U001")
+            adapter.submitList(product)
+            binding.lblCount.text = "${product.size} Product(s)"
+        }
 
 
         return binding.root
