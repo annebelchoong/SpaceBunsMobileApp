@@ -5,6 +5,7 @@ import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.time.LocalDateTime
 import java.util.*
 
 data class Order(
@@ -15,7 +16,7 @@ data class Product(
     @DocumentId
     var productId: String = "",
     var cat: String = "",
-    var date: Date = Date(),
+    var date: LocalDateTime = LocalDateTime.now(),
     var desc: String = "",
     var name: String = "",
     var price: Double = 0.00,
