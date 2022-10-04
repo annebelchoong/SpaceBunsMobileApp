@@ -11,6 +11,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
+import com.google.android.material.snackbar.Snackbar
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -27,7 +32,14 @@ class HomeFragment : Fragment() {
 //            binding.btn.setBackgroundTintList(ColorStateList.valueOf(R.color.black))
 //
 //        }
-    binding.btn2.setOnClickListener { nav.navigate(R.id.dateTimeFragment) }
+        binding.btn2.setOnClickListener {
+            if (LocalTime.now().isAfter(LocalTime.parse("22:00:00")) && LocalTime.now().isBefore(LocalTime.parse("09:00:00"))) {
+                nav.navigate(R.id.dateTimeFragment)
+            }else{
+                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
+            }
+    }
+
 
         return binding.root
     }

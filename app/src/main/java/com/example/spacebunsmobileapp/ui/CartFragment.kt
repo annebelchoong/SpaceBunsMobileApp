@@ -15,7 +15,9 @@ import com.example.spacebunsmobileapp.databinding.FragmentCartBinding
 import com.example.spacebunsmobileapp.util.CartAdapter
 import com.example.spacebunsmobileapp.util.ProductAdapter
 import com.example.spacebunsmobileapp.util.setImageBlob
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
+import java.time.LocalTime
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
@@ -35,6 +37,15 @@ class CartFragment : Fragment() {
             val product = vm.getCartLine("U001")
             adapter.submitList(product)
             binding.lblCount.text = "${product.size} Product(s)"
+        }
+
+        binding.btnCheckout.setOnClickListener {
+            if (LocalTime.now().isAfter(LocalTime.parse("22:00:00")) && LocalTime.now().isBefore(
+                    LocalTime.parse("09:00:00"))) {
+//                nav.navigate(R.id.dateTimeFragment)
+            }else{
+                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
+            }
         }
 
 
