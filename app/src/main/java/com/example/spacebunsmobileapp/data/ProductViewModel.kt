@@ -14,16 +14,17 @@ class ProductViewModel: ViewModel() {
     var productId = ""
     var dateTime = LocalDateTime.now()
     val CART = Firebase.firestore.collection("usersTest")
-    private val products = MutableLiveData<List<Product>>()
+    private val products = MutableLiveData<List<Menu>>()
     private val cart = MutableLiveData<List<Cart>>()
 
-    suspend fun get(id: String): Product? {
+    suspend fun get(id: String): Menu? {
         return PRODUCTS // do not have count, only id and name
             .document(id)
             .get()
             .await()
-            .toObject<Product>()
+            .toObject<Menu>()
     }
+    
 
     suspend fun getCart(id: String, u: String): Cart? {
         return CART // do not have count, only id and name
@@ -35,11 +36,11 @@ class ProductViewModel: ViewModel() {
             .toObject<Cart>()
     }
 
-    suspend fun getAll(): List<Product> {
-        val product = PRODUCTS
+    suspend fun getAll(): List<Menu> {
+        val product = MENU
             .get()
             .await()
-            .toObjects<Product>()
+            .toObjects<Menu>()
 
         return product
     }

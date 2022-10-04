@@ -2,6 +2,7 @@ package com.example.spacebunsmobileapp.data
 
 import com.google.firebase.firestore.Blob
 import com.google.firebase.firestore.DocumentId
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -12,16 +13,18 @@ data class Order(
     var id: String=""
 )
 
-data class Product(
+data class Menu(
     @DocumentId
-    var productId: String = "",
+    var id: String = "",
     var cat: String = "",
-    var date: Date= Date(),
-    var desc: String = "",
     var name: String = "",
+    var desc: String = "",
     var price: Double = 0.00,
-    var photo: Blob = Blob.fromBytes(ByteArray(0)),
+    var photo: Blob = Blob.fromBytes(ByteArray(0)),  // empty bytes
+    var date: Date = Date() // current Date
 )
+
+var MENU = FirebaseFirestore.getInstance().collection("products")
 
 data class Cart(
     @DocumentId
@@ -44,3 +47,4 @@ data class User(
 val PRODUCTS = Firebase.firestore.collection("products")
 //val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
 val CUST = Firebase.firestore.collection("usersTest")
+
