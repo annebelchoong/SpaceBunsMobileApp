@@ -6,6 +6,18 @@
     android:layout_height="wrap_content"
     android:padding="4dp">
 
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toEndOf="@+id/txtName"
+        app:layout_constraintTop_toTopOf="@+id/txtName"
+        tools:text="XXXXXX" />
+
     <ImageView
         android:id="@+id/imgPhoto"
         android:layout_width="50dp"
@@ -23,26 +35,26 @@
 
     <TextView
         android:id="@+id/txtName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216"
+        app:layout_constraintTop_toTopOf="@+id/imgPhoto"
         tools:text="XXXXXX" />
 
     <TextView
         android:id="@+id/txtDesc"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="25dp"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="normal|italic"
+        app:layout_constraintEnd_toStartOf="@+id/btnCart"
         app:layout_constraintStart_toEndOf="@+id/imgPhoto"
         app:layout_constraintTop_toBottomOf="@+id/txtName"
         tools:text="XXXXXX" />

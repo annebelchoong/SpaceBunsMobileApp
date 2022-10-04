@@ -31,6 +31,7 @@ class ProductAdapter (
         //holder.binding.txtId.text   = product.id
         //holder.binding.txtCat.text = ("--> " + product.cat + " <--")
         holder.binding.txtName.text = product.name
+        holder.binding.txtPrice.text = ("( RM" + product.price + " )")
         holder.binding.txtDesc.text  = product.desc
 
         // TODO: Load photo blob (use extension method)
