@@ -31,6 +31,7 @@ data class Cart(
 ){
     @get:Exclude
     var totalPrice: Double = 0.0
+    var product: Product = Product()
 }
 
 data class User(
@@ -39,5 +40,5 @@ data class User(
 )
 
 val PRODUCTS = Firebase.firestore.collection("products")
-val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
+//val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
 val CUST = Firebase.firestore.collection("usersTest")
