@@ -33,8 +33,9 @@ class CartAdapter (
             val productLine = getItem(position)
 
             holder.binding.lblProductName.text = productLine.productName
-            holder.binding.lblQuantity.text = productLine.quantity.toString()
-            holder.binding.lblPrice.text = productLine.price.toString()
+            holder.binding.lblQuantity.text = "x ${productLine.quantity}"
+            var totalPrice = productLine.quantity * productLine.price
+            holder.binding.lblPrice.text = " RM ${totalPrice}"
             holder.binding.imageView2.setImageBlob(productLine.photo)
 
 //        holder.binding.txtCount.text = "${productLine.count} Order(s)"
