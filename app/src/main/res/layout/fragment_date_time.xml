@@ -8,13 +8,13 @@
     tools:context=".ui.DateTimeFragment" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/lblSelectDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date:"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        android:text="Select Date:"
+        app:layout_constraintBottom_toBottomOf="@+id/spnDate"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="@+id/spnDate" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -36,15 +36,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        style="?android:spinnerStyle"
-        android:layout_width="150dp"
+    <TextView
+        android:id="@+id/lblSelectTime"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="4 Oct 2022"
-        android:textColor="@color/black"
+        android:text="Select Time: "
+        app:layout_constraintBottom_toBottomOf="@+id/spnTime"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/spnTime" />
+
+    <Spinner
+        android:id="@+id/spnDate"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="149dp" />
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Spinner
+        android:id="@+id/spnTime"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/spnDate"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnOrderNowNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Order Now"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/spnTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
