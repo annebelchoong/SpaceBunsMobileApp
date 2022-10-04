@@ -47,7 +47,7 @@ class AccountFragment : Fragment() {
 
         //whether user login or not
         if (user != null){
-            binding.edtName.setText(user.displayName)
+            //binding.edtName.setText(user.displayName)
             binding.edtEmail.setText(user.email)
 
             //whether email is verified

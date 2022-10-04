@@ -8,10 +8,13 @@ import android.widget.Toast
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
     lateinit var auth: FirebaseAuth
+    lateinit var store: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -28,6 +31,9 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             val email = binding.edtEmailRegister.text.toString()
             val password = binding.edtPasswordRegister.text.toString()
+            val phone = binding.edtPhoneRegister.text.toString()
+            val name = binding.edtNameRegister.text.toString()
+            val address = binding.edtAddressRegister.text.toString()
 
             //Validate email
             if (email.isEmpty()) {
@@ -66,6 +72,7 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     Toast.makeText(this, "Registration is Successful!", Toast.LENGTH_SHORT).show()
+
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                 } else {

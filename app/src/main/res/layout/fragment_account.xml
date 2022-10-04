@@ -234,33 +234,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Name"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/txtPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Phone"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/txtAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Address"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
             <Button
                 android:id="@+id/btn_verify"
                 android:layout_width="match_parent"
@@ -270,11 +243,11 @@
                 android:text="Email Verification" />
 
             <Button
-                android:id="@+id/btnUpdateProfile"
+                android:id="@+id/btnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#673AB7"
-                android:text="Update Profile"
+                android:text="Profile"
                 android:textColor="@color/white" />
 
             <Button
@@ -284,6 +257,12 @@
                 android:backgroundTint="#E91E63"
                 android:text="Order History"
                 android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnVoucher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Vouchers" />
 
             <Button
                 android:id="@+id/btn_changePass"

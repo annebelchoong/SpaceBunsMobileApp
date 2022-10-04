@@ -38,6 +38,14 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/edtNameRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Name"
+                    android:inputType="textPersonName" />
+
+                <EditText
                     android:id="@+id/edt_email_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,6 +58,22 @@
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/edtPhoneRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="11"
+                    android:hint="Phone No"
+                    android:inputType="phone" />
+
+                <EditText
+                    android:id="@+id/edtAddressRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="50"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress" />
 
                 <Button
                     android:id="@+id/btn_register"
