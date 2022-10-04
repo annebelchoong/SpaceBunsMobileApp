@@ -7,10 +7,12 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
+import java.time.LocalDateTime
 
 class ProductViewModel: ViewModel() {
 
     var productId = ""
+    var dateTime = LocalDateTime.now()
     val CART = Firebase.firestore.collection("usersTest")
     private val products = MutableLiveData<List<Product>>()
     private val cart = MutableLiveData<List<Cart>>()
