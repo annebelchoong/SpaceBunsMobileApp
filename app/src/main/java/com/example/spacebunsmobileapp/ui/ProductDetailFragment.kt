@@ -36,6 +36,7 @@ class ProductDetailFragment : Fragment() {
             binding.imageView3.setImageBlob(product.photo)
             binding.txtProductName.text = product.name
             binding.txtDesc.text = product.desc
+            binding.txtTotalPrice.text = product.price.toString()
             vm.productId = product.productId
         }
 
@@ -55,7 +56,7 @@ class ProductDetailFragment : Fragment() {
             c.productId = vm.productId
             c.productName = binding.txtProductName.text.toString()
             c.quantity = binding.txtQuantity.text.toString().toIntOrNull() ?: 1
-            c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull() ?: 0.00
+            c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull()?: 0.00
             c.totalPrice = c.quantity * c.price
             c.photo = binding.imageView3.cropToBlob(300, 300)
             u.customerId = "U001"
