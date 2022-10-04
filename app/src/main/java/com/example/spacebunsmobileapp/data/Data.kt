@@ -16,7 +16,7 @@ data class Product(
     @DocumentId
     var productId: String = "",
     var cat: String = "",
-    var date: LocalDateTime = LocalDateTime.now(),
+    var date: Date= Date(),
     var desc: String = "",
     var name: String = "",
     var price: Double = 0.00,
