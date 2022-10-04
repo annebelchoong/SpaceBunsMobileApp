@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
 //            binding.btn.setBackgroundTintList(ColorStateList.valueOf(R.color.black))
 //
 //        }
+    binding.btn2.setOnClickListener { nav.navigate(R.id.dateTimeFragment) }
 
         return binding.root
     }
