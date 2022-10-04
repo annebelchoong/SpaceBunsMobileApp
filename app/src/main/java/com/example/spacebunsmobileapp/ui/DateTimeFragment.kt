@@ -27,9 +27,7 @@ class DateTimeFragment : Fragment() {
     private val vm: ProductViewModel by activityViewModels()
 
 
-    //    private val dateFormatter = SimpleDateFormat("dd MMMM yyyy ", Locale.getDefault())
     private val dateFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy ")
-//    private val timeFormatter = SimpleDateFormat("hh:mm a", Locale.getDefault())
     private val timeFormatter = DateTimeFormatter.ofPattern("hh:mm a")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -82,6 +80,7 @@ class DateTimeFragment : Fragment() {
         }
 
         binding.btnOrderNowNow.setOnClickListener {
+            nav.popBackStack()
             nav.popBackStack()
             nav.navigate(R.id.menuFragment)
         }
