@@ -9,12 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
-import com.example.spacebunsmobileapp.data.CART
 import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.data.User
 import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProductDetailBinding
+import com.example.spacebunsmobileapp.util.cropToBlob
 import com.example.spacebunsmobileapp.util.setImageBlob
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -57,6 +57,7 @@ class ProductDetailFragment : Fragment() {
             c.quantity = binding.txtQuantity.text.toString().toIntOrNull() ?: 1
             c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull() ?: 0.00
             c.totalPrice = c.quantity * c.price
+            c.photo = binding.imageView3.cropToBlob(300, 300)
             u.customerId = "U001"
 
             vm.setCart(c,u)
