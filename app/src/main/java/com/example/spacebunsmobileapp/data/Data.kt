@@ -14,16 +14,18 @@ data class Order(
     var id: String=""
 )
 
-data class User (
+data class Customer (
     @DocumentId
     var id      : String = "",
     var email   : String = "",
     var password: String = "",
     var name    : String = "",
+    var phone   : String = "",
+    var address : String = "",
     var photo   : Blob   = Blob.fromBytes(ByteArray(0)),
 )
 
-val USERS = Firebase.firestore.collection("users")
+//val CUSTOMER = Firebase.firestore.collection("customers")
 
 //fun RESTORE_USERS(ctx: Context) {
 //    // (1) DELETE users

@@ -50,4 +50,14 @@
         android:name="com.example.spacebunsmobileapp.ui.CodeScannerActivity"
         android:label="activity_code_scanner"
         tools:layout="@layout/activity_code_scanner" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.spacebunsmobileapp.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.example.spacebunsmobileapp.ui.UpdateProfileFragment"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
 </navigation>

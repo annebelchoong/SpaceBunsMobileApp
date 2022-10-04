@@ -37,18 +37,11 @@
             android:name=".ui.ChangeEmailActivity"
             android:parentActivityName=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.CodeScannerActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
-
-        <!--        <activity-->
-<!--            android:name=".ui.login.LoginActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_login" />-->
 <!--        <activity-->
-<!--            android:name=".CodeScannerActivity"-->
+<!--            android:name=".ui.CodeScannerActivity"-->
+<!--            android:parentActivityName=".MainActivity"-->
 <!--            android:exported="false" />-->
+
 
         <activity
             android:name=".MainActivity"

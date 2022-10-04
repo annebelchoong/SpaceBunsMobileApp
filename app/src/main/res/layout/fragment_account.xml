@@ -283,10 +283,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF5722"
-                android:text="Scan QR Code" />
+                android:text="Scan QR Code"
+                android:visibility="gone" />
 
             <Button
-                android:id="@+id/btn_logout"
+                android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
