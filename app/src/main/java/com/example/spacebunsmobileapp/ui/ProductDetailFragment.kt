@@ -5,17 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.spacebunsadminapp.util.ProductAdapter
+import com.example.spacebunsadminapp.util.cropToBlob
+import com.example.spacebunsadminapp.util.setImageBlob
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.data.User
 import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProductDetailBinding
-import com.example.spacebunsmobileapp.util.cropToBlob
-import com.example.spacebunsmobileapp.util.setImageBlob
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -31,13 +33,18 @@ class ProductDetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProductDetailBinding.inflate(inflater, container, false)
 
+        binding.btnBack.setOnClickListener {
+            nav.navigate(R.id.menuFragment)
+        }
+
         lifecycleScope.launch {
             val product = vm.get(id)!!
             binding.imageView3.setImageBlob(product.photo)
             binding.txtProductName.text = product.name
             binding.txtDesc.text = product.desc
+            vm.productId = product.id
             binding.txtTotalPrice.text = product.price.toString()
-            vm.productId = product.productId
+
         }
 
         binding.btnAddToCart.setOnClickListener {

@@ -1,42 +1,47 @@
-package com.example.spacebunsmobileapp.util
+
+package com.example.spacebunsadminapp.util
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.spacebunsmobileapp.data.Product
-import com.example.spacebunsmobileapp.databinding.ItemProductBinding
+import com.example.spacebunsmobileapp.data.Menu
+import com.example.spacebunsmobileapp.databinding.FragmentMenuItemBinding
+
 
 class ProductAdapter (
-    val fn: (ViewHolder, Product) -> Unit ={ _, _ ->}
-    ): ListAdapter<Product, ProductAdapter.ViewHolder>(DiffCallBack) {
+    val fn: (ViewHolder, Menu) -> Unit = { _, _ -> }
+) : ListAdapter<Menu, ProductAdapter.ViewHolder>(DiffCallback){
 
-        companion object DiffCallBack: DiffUtil.ItemCallback<Product>(){
-            override fun areItemsTheSame(a: Product, b: Product) = a.productId == b.productId
-            override fun areContentsTheSame(a: Product, b: Product) = a == b
-        }
-        class ViewHolder(val binding: ItemProductBinding): RecyclerView.ViewHolder(binding.root)
+    companion object DiffCallback : DiffUtil.ItemCallback<Menu>() {
+        override fun areItemsTheSame(a: Menu, b: Menu)    = a.id == b.id
+        override fun areContentsTheSame(a: Menu, b: Menu) = a == b
+    }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val binding = ItemProductBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-            return ViewHolder(binding)
-        }
+    class ViewHolder(val binding: FragmentMenuItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val product = getItem(position)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = FragmentMenuItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
+    }
 
-            holder.binding.txtName.text = product.name
-            holder.binding.txtPrice.text = product.price.toString()
-            holder.binding.imageView.setImageBlob(product.photo)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val product = getItem(position)
 
-//        holder.binding.txtCount.text = "${product.count} Order(s)"
+        //holder.binding.txtId.text   = product.id
+        //holder.binding.txtCat.text = ("--> " + product.cat + " <--")
+        holder.binding.txtName.text = product.name
+        holder.binding.txtPrice.text = ("( RM" + product.price + " )")
+        holder.binding.txtDesc.text  = product.desc
 
-            fn(holder,product)
-        }
+        // TODO: Load photo blob (use extension method)
+        // holder.binding.imgPhoto.setImageDrawable(null) // default doesn't work
+        holder.binding.imgPhoto.setImageBlob(product.photo)
+
+        fn(holder, product)
+    }
 
 }
+
+
