@@ -25,4 +25,19 @@
         android:name="com.example.spacebunsmobileapp.ui.RewardFragment"
         android:label="Reward"
         tools:layout="@layout/fragment_reward" />
+    <activity
+        android:id="@+id/changeEmailActivity"
+        android:name="com.example.spacebunsmobileapp.ui.ChangeEmailActivity"
+        android:label="activity_change_email"
+        tools:layout="@layout/activity_change_email" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.spacebunsmobileapp.ui.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.spacebunsmobileapp.ui.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
