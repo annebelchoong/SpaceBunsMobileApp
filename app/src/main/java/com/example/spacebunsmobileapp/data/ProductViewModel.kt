@@ -14,6 +14,7 @@ class ProductViewModel: ViewModel() {
     val CART = Firebase.firestore.collection("usersTest")
     private val products = MutableLiveData<List<Product>>()
     private val cart = MutableLiveData<List<Cart>>()
+
     suspend fun get(id: String): Product? {
         return PRODUCTS // do not have count, only id and name
             .document(id)
@@ -45,12 +46,14 @@ class ProductViewModel: ViewModel() {
         CART.document(u.customerId).collection("cart").document(c.productId).set(c)
     }
 
-    suspend fun getCust(id: String): User?{
-        return CUST
+    suspend fun getCartLine(id: String, u: User): Product? {
+        return PRODUCTS // do not have count, only id and name
+            .document(u.customerId)
+            .collection("cart")
             .document(id)
             .get()
             .await()
-            .toObject<User>()
+            .toObject<Product>()
     }
 
 }
