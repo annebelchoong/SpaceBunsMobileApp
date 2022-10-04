@@ -73,5 +73,6 @@
         app:iconPadding="0dp"
         app:iconTint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
