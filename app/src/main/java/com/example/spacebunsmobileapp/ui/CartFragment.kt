@@ -13,8 +13,6 @@ import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentCartBinding
 import com.example.spacebunsmobileapp.util.CartAdapter
-import com.example.spacebunsmobileapp.util.ProductAdapter
-import com.example.spacebunsmobileapp.util.setImageBlob
 import kotlinx.coroutines.launch
 
 class CartFragment : Fragment() {
