@@ -72,9 +72,9 @@ class DateTimeFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) = Unit// return dummy function
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 when (binding.spnTime.selectedItem as String) {
-                    today.format(dateFormatter) -> vm.dateTime = today
-                    tomorrow.format(dateFormatter) -> vm.dateTime = tomorrow
-                    theDayAfter.format(dateFormatter) -> vm.dateTime = theDayAfter
+                    today.format(timeFormatter) -> vm.dateTime = today
+                    tomorrow.format(timeFormatter) -> vm.dateTime = tomorrow
+                    theDayAfter.format(timeFormatter) -> vm.dateTime = theDayAfter
                 }
             }
         }
