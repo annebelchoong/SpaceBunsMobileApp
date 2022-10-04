@@ -80,15 +80,15 @@ class AccountFragment : Fragment() {
             changeEmail()
         }
 
-        binding.btnScanQR.setOnClickListener {
-            scanQRCode()
-        }
+//        binding.btnScanQR.setOnClickListener {
+//            scanQRCode()
+//        }
     }
 
-    private fun scanQRCode() {
-        val intent = Intent(context, CodeScannerActivity::class.java)
-        startActivity(intent)
-    }
+//    private fun scanQRCode() {
+//        val intent = Intent(context, CodeScannerActivity::class.java)
+//        startActivity(intent)
+//    }
 
     private fun changeEmail() {
         val intent = Intent(context, ChangeEmailActivity::class.java)
@@ -221,13 +221,13 @@ class AccountFragment : Fragment() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQ_CAM && resultCode == Activity.RESULT_OK) {
-            val imgBitmap = data?.extras?.get("data") as Bitmap
-            uploadImgToFirebase(imgBitmap)
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == REQ_CAM && resultCode == Activity.RESULT_OK) {
+//            val imgBitmap = data?.extras?.get("data") as Bitmap
+//            uploadImgToFirebase(imgBitmap)
+//        }
+//    }
 
     private fun uploadImgToFirebase(imgBitmap: Bitmap) {
         val baos = ByteArrayOutputStream()

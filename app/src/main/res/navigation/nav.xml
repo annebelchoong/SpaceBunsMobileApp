@@ -40,4 +40,14 @@
         android:name="com.example.spacebunsmobileapp.ui.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/resetPasswordActivity"
+        android:name="com.example.spacebunsmobileapp.ui.ResetPasswordActivity"
+        android:label="activity_reset_password"
+        tools:layout="@layout/activity_reset_password" />
+    <activity
+        android:id="@+id/codeScannerActivity"
+        android:name="com.example.spacebunsmobileapp.ui.CodeScannerActivity"
+        android:label="activity_code_scanner"
+        tools:layout="@layout/activity_code_scanner" />
 </navigation>

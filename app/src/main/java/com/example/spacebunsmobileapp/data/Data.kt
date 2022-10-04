@@ -25,28 +25,28 @@ data class User (
 
 val USERS = Firebase.firestore.collection("users")
 
-fun RESTORE_USERS(ctx: Context) {
-    // (1) DELETE users
-    USERS.get().addOnSuccessListener { snap ->
-        for (doc in snap.documents) {
-            USERS.document(doc.id).delete()
-        }
-    }
-    // (2) ADD users
-    val user1 = User(
-        email    = "1@gmail.com",
-        password = "password",
-        name     = "Bae Suzy",
-        photo    = BitmapFactory.decodeResource(ctx.resources, R.drawable.suzy).toBlob(),
-    )
-    USERS.document().set(user1)
-
-    val user2 = User(
-        email    = "2@gmail.com",
-        password = "password",
-        name     = "Lee Jieun",
-        photo    = BitmapFactory.decodeResource(ctx.resources, R.drawable.jieun).toBlob(),
-    )
-    USERS.document().set(user2)
-
-}
+//fun RESTORE_USERS(ctx: Context) {
+//    // (1) DELETE users
+//    USERS.get().addOnSuccessListener { snap ->
+//        for (doc in snap.documents) {
+//            USERS.document(doc.id).delete()
+//        }
+//    }
+//    // (2) ADD users
+//    val user1 = User(
+//        email    = "1@gmail.com",
+//        password = "password",
+//        name     = "Bae Suzy",
+//        photo    = BitmapFactory.decodeResource(ctx.resources, R.drawable.suzy).toBlob(),
+//    )
+//    USERS.document().set(user1)
+//
+//    val user2 = User(
+//        email    = "2@gmail.com",
+//        password = "password",
+//        name     = "Lee Jieun",
+//        photo    = BitmapFactory.decodeResource(ctx.resources, R.drawable.jieun).toBlob(),
+//    )
+//    USERS.document().set(user2)
+//
+//}

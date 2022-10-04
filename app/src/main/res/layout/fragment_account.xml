@@ -27,20 +27,20 @@
             android:padding="30dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imgUser"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_round_account_circle_24" />
 
             <TextView
-                android:id="@+id/txtProfile"
+                android:id="@+id/txtAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black"
-                android:text="Profile"
+                android:text="Account"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp"
@@ -116,6 +116,12 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF5722"
                 android:text="Scan QR Code" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login" />
 
             <Button
                 android:id="@+id/btn_logout"
