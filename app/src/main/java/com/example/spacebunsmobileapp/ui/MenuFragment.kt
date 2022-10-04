@@ -33,7 +33,7 @@ class MenuFragment : Fragment() {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
 
         adapter = ProductAdapter { holder, product ->
-            holder.binding.btnCart.setOnClickListener {
+            holder.binding.root.setOnClickListener {
                 nav.navigate(R.id.productDetailFragment, bundleOf("id" to product.id))
             }
         }
