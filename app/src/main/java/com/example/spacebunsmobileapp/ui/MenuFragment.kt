@@ -8,15 +8,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.spacebunsadminapp.util.ProductAdapter
+import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.MENU
 import com.example.spacebunsmobileapp.data.SpaceBunsViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
     private lateinit var binding: FragmentMenuBinding
+    private val nav by lazy { findNavController() }
     private val vm: SpaceBunsViewModel by activityViewModels()
 
     private lateinit var adapter: ProductAdapter
@@ -28,9 +32,15 @@ class MenuFragment : Fragment() {
     ): View {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
 
-        adapter = ProductAdapter { _, _ -> }
+        adapter = ProductAdapter { holder, product ->
+            holder.binding.btnCart.setOnClickListener {
+                nav.navigate(R.id.productDetailFragment, bundleOf("id" to product.id))
+            }
+        }
         binding.rv.adapter = adapter
         binding.rv.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+
 
         vm.getResult().observe(viewLifecycleOwner){ menu ->
             adapter.submitList(menu)
