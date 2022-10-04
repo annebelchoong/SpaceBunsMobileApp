@@ -27,15 +27,21 @@ class CartFragment : Fragment() {
 
     private val id by lazy {arguments?.getString("id","")?: ""}
 
+    val custId = "U001"
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentCartBinding.inflate(inflater, container, false)
 
-        val adapter = CartAdapter()
+        val adapter = CartAdapter() {holder, cart ->
+            holder.binding.btnDelete.setOnClickListener {
+                delete(cart.productId, custId)
+            }
+        }
         binding.rvCart.adapter = adapter
         binding.rvCart.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         lifecycleScope.launch {
-            val product = vm.getCartLine("U001")
+            val product = vm.getCartLine(custId)
             adapter.submitList(product)
             binding.lblCount.text = "${product.size} Product(s)"
         }
@@ -54,5 +60,13 @@ class CartFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    // for now user use string, need to change to user
+    private fun delete(id:String, user: String){
+        vm.delete(id, user)
+
+        nav.navigateUp()
+        nav.navigate(R.id.cartFragment)
     }
 }
