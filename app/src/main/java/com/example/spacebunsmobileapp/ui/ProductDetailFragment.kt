@@ -43,6 +43,8 @@ class ProductDetailFragment : Fragment() {
             binding.txtProductName.text = product.name
             binding.txtDesc.text = product.desc
             vm.productId = product.id
+            binding.txtTotalPrice.text = product.price.toString()
+
         }
 
         binding.btnAddToCart.setOnClickListener {
@@ -61,7 +63,7 @@ class ProductDetailFragment : Fragment() {
             c.productId = vm.productId
             c.productName = binding.txtProductName.text.toString()
             c.quantity = binding.txtQuantity.text.toString().toIntOrNull() ?: 1
-            c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull() ?: 0.00
+            c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull()?: 0.00
             c.totalPrice = c.quantity * c.price
             c.photo = binding.imageView3.cropToBlob(300, 300)
             u.customerId = "U001"

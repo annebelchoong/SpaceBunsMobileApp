@@ -7,10 +7,12 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
+import java.time.LocalDateTime
 
 class ProductViewModel: ViewModel() {
 
     var productId = ""
+    var dateTime = LocalDateTime.now()
     val CART = Firebase.firestore.collection("usersTest")
     private val products = MutableLiveData<List<Menu>>()
     private val cart = MutableLiveData<List<Cart>>()
@@ -22,9 +24,20 @@ class ProductViewModel: ViewModel() {
             .await()
             .toObject<Menu>()
     }
+    
+
+    suspend fun getCart(id: String, u: String): Cart? {
+        return CART // do not have count, only id and name
+            .document(u)
+            .collection("cart")
+            .document(id)
+            .get()
+            .await()
+            .toObject<Cart>()
+    }
 
     suspend fun getAll(): List<Menu> {
-        val product = PRODUCTS
+        val product = MENU
             .get()
             .await()
             .toObjects<Menu>()
@@ -63,5 +76,10 @@ class ProductViewModel: ViewModel() {
         return getProducts
     }
 
+    //u need to change to user
+    fun delete(id: String, u: String) {
+        CART.document(u).collection("cart").document(id).delete()
+
+    }
 
 }

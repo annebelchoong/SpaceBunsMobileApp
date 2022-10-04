@@ -50,4 +50,14 @@
         android:name="com.example.spacebunsmobileapp.ui.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/dateTimeFragment"
+        android:name="com.example.spacebunsmobileapp.ui.DateTimeFragment"
+        android:label="fragment_date_time"
+        tools:layout="@layout/fragment_date_time" />
+    <fragment
+        android:id="@+id/cartUpdateFragment"
+        android:name="com.example.spacebunsmobileapp.ui.CartUpdateFragment"
+        android:label="fragment_cart_update"
+        tools:layout="@layout/fragment_cart_update" />
 </navigation>
