@@ -32,6 +32,11 @@ class MenuFragment : Fragment() {
     ): View {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
 
+        binding.fabCart.setOnClickListener{
+            nav.popBackStack()
+            nav.navigate(R.id.cartFragment)
+        }
+
         adapter = ProductAdapter { holder, product ->
             holder.binding.root.setOnClickListener {
                 nav.navigate(R.id.productDetailFragment, bundleOf("id" to product.id))
