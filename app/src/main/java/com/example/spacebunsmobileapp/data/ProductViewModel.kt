@@ -25,6 +25,16 @@ class ProductViewModel: ViewModel() {
             .toObject<Product>()
     }
 
+    suspend fun getCart(id: String, u: String): Cart? {
+        return CART // do not have count, only id and name
+            .document(u)
+            .collection("cart")
+            .document(id)
+            .get()
+            .await()
+            .toObject<Cart>()
+    }
+
     suspend fun getAll(): List<Product> {
         val product = PRODUCTS
             .get()
