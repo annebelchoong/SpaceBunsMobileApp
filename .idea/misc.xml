@@ -3,11 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
         <entry key="..\:/Users/guna1/SpaceBunsMobileApp/app/src/main/res/drawable/ic_delete.xml" value="0.226" />
         <entry key="..\:/Users/guna1/SpaceBunsMobileApp/app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/guna1/SpaceBunsMobileApp/app/src/main/res/layout/fragment_home.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/guna1/SpaceBunsMobileApp/app/src/main/res/layout/fragment_menu.xml" value="0.5210084033613446" />
         <entry key="..\:/Users/guna1/SpaceBunsMobileApp/app/src/main/res/layout/fragment_menu_item.xml" value="0.72" />
+
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/Assign/app/src/main/res/layout/fragment_account.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/drawable/ic_error.xml" value="0.2595" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_change_email.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_code_scanner.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_profile_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_register.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_register_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/activity_reset_password.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/fragment_account.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/fragment_home.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/fragment_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/fragment_reward.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/menu/bottom_nav.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/ic_round_location_on_24.xml" value="0.2275" />
+
         <entry key="app/src/main/res/drawable/round_rectang.xml" value="0.3725" />
         <entry key="app/src/main/res/drawable/round_rectangle.xml" value="0.3725" />
         <entry key="app/src/main/res/drawable/round_rectangle_stroke.xml" value="0.1805" />
@@ -18,11 +37,21 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30462962962962964" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.4351755777994792" />
+
+        <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.4433084908568967" />
+        <entry key="app/src/main/res/layout/fragment_date_time.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/fragment_delivery.xml" value="0.36041666666666666" />
+
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30462962962962964" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_pickup.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.36041666666666666" />
         <entry key="app/src/main/res/layout/fragment_reward.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.36041666666666666" />
         <entry key="app/src/main/res/layout/item_product_line.xml" value="0.2703125" />
+        <entry key="app/src/main/res/layout/item_branch.xml" value="0.2954254150390623" />
+        <entry key="app/src/main/res/layout/item_product.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/item_product_line.xml" value="0.38887939453125003" />
         <entry key="app/src/main/res/layout/round_rectangle.xml" value="0.32685185185185184" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.35833333333333334" />
       </map>

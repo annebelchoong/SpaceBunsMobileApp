@@ -10,9 +10,9 @@
         android:icon="@drawable/ic_round_fastfood_24"
         android:title="Menu" />
     <item
-        android:id="@+id/rewardFragment"
+        android:id="@+id/donationFragment"
         android:icon="@drawable/ic_round_card_giftcard_24"
-        android:title="Reward" />
+        android:title="Donations" />
     <item
         android:id="@+id/accountFragment"
         android:icon="@drawable/ic_round_account_circle_24"

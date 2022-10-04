@@ -1,5 +1,5 @@
-package com.example.spacebunsadminapp.util
 
+package com.example.spacebunsadminapp.util
 import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -106,6 +106,6 @@ fun ImageView.cropToBlob(width: Int, height: Int): Blob {
 // Usage: Load Firebase Blob
 fun ImageView.setImageBlob(blob: Blob) {
     this.setImageBitmap(blob.toBitmap())
-}
 
+}
 

@@ -21,10 +21,6 @@ class MenuFragment : Fragment() {
 
     private lateinit var adapter: ProductAdapter
 
-
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -57,7 +53,5 @@ class MenuFragment : Fragment() {
 
         return binding.root
     }
-
-
 
 }
