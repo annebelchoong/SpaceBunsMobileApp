@@ -12,6 +12,7 @@ import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.CART
 import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
+import com.example.spacebunsmobileapp.data.User
 import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProductDetailBinding
 import com.example.spacebunsmobileapp.util.setImageBlob
@@ -36,7 +37,6 @@ class ProductDetailFragment : Fragment() {
             binding.txtProductName.text = product.name
             binding.txtDesc.text = product.desc
             vm.productId = product.productId
-            vm.custId = "U001"
         }
 
         binding.btnAddToCart.setOnClickListener {
@@ -50,14 +50,16 @@ class ProductDetailFragment : Fragment() {
 
     private fun addToCart() {
             val c = Cart()
+            val u = User()
 
             c.productId = vm.productId
             c.productName = binding.txtProductName.text.toString()
             c.quantity = binding.txtQuantity.text.toString().toIntOrNull() ?: 1
             c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull() ?: 0.00
             c.totalPrice = c.quantity * c.price
+            u.customerId = "U001"
 
-            vm.setCart(c)
+            vm.setCart(c,u)
 
             nav.navigateUp()
 

@@ -11,10 +11,10 @@ import kotlinx.coroutines.tasks.await
 class ProductViewModel: ViewModel() {
 
     var productId = ""
-    var custId = "U001"
-    val CART = Firebase.firestore.collection("usersTest").document(custId).collection("cart")
+    val CART = Firebase.firestore.collection("usersTest")
     private val products = MutableLiveData<List<Product>>()
     private val cart = MutableLiveData<List<Cart>>()
+
     suspend fun get(id: String): Product? {
         return PRODUCTS // do not have count, only id and name
             .document(id)
@@ -29,29 +29,15 @@ class ProductViewModel: ViewModel() {
             .await()
             .toObjects<Product>()
 
-//        for(os in product){
-//            os.count = ORDERS
-//                .whereEqualTo("productId", os.id)
-//                .get()
-//                .await()
-//                .size()
-//        }
         return product
     }
 
     fun getAllAll() = products
 
     // for cart
-    fun setCart(c:Cart){
-        CART.document(c.productId).set(c)
+    fun setCart(c:Cart, u:User){
+        CART.document(u.customerId).collection("cart").document(c.productId).set(c)
     }
 
-    suspend fun getCust(id: String): User?{
-        return CUST
-            .document(id)
-            .get()
-            .await()
-            .toObject<User>()
-    }
 
 }

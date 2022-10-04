@@ -25,6 +25,8 @@ class MenuFragment : Fragment() {
     private val nav by lazy { findNavController() }
     private val vm:ProductViewModel by activityViewModels()
 
+    // need to get customer id to pass into the cart
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
 
