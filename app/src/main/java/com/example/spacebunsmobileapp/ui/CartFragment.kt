@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.spacebunsmobileapp.R
+import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentCartBinding
 import com.example.spacebunsmobileapp.util.CartAdapter
@@ -33,6 +35,9 @@ class CartFragment : Fragment() {
         binding = FragmentCartBinding.inflate(inflater, container, false)
 
         val adapter = CartAdapter() {holder, cart ->
+            holder.binding.btnEdit.setOnClickListener {
+                nav.navigate(R.id.cartUpdateFragment, bundleOf("id" to cart.productId))
+            }
             holder.binding.btnDelete.setOnClickListener {
                 delete(cart.productId, custId)
             }
@@ -69,4 +74,5 @@ class CartFragment : Fragment() {
         nav.navigateUp()
         nav.navigate(R.id.cartFragment)
     }
+
 }
