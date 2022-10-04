@@ -29,13 +29,6 @@ class ProductViewModel: ViewModel() {
             .await()
             .toObjects<Product>()
 
-//        for(os in product){
-//            os.count = ORDERS
-//                .whereEqualTo("productId", os.id)
-//                .get()
-//                .await()
-//                .size()
-//        }
         return product
     }
 
@@ -46,14 +39,5 @@ class ProductViewModel: ViewModel() {
         CART.document(u.customerId).collection("cart").document(c.productId).set(c)
     }
 
-    suspend fun getCartLine(id: String, u: User): Product? {
-        return PRODUCTS // do not have count, only id and name
-            .document(u.customerId)
-            .collection("cart")
-            .document(id)
-            .get()
-            .await()
-            .toObject<Product>()
-    }
 
 }
