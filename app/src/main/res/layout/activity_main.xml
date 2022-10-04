@@ -19,6 +19,40 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav" />
 
+    <!--Edit text for entering the amount-->
+    <EditText
+        android:id="@+id/idEdtAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Amount to be Paid"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/idTVStatus"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <!--button for making a payment-->
+    <Button
+        android:id="@+id/idBtnPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idEdtAmount"
+        android:layout_centerInParent="true"
+        android:text="Make Payment"
+        app:layout_constraintBottom_toBottomOf="@+id/host"
+        app:layout_constraintEnd_toStartOf="@+id/host"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--text view for displaying payment status-->
+    <TextView
+        android:id="@+id/idTVStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idBtnPay"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/purple_200"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/idBtnPay" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
@@ -28,4 +62,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

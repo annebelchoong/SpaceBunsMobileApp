@@ -50,4 +50,8 @@
         android:name="com.example.spacebunsmobileapp.ui.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/checkoutTestFragment"
+        android:name="com.example.spacebunsmobileapp.ui.CheckoutTestFragment"
+        android:label="CheckoutTestFragment" />
 </navigation>
