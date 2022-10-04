@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblDateTime" />
+        app:layout_constraintTop_toBottomOf="@+id/lblDate" />
 
     <view
         android:id="@+id/view"
@@ -61,17 +61,17 @@
         android:text="XXXXX"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblDeliveryOrPickup" />
+        app:layout_constraintTop_toBottomOf="@+id/lblDate" />
 
     <TextView
-        android:id="@+id/lblDateTime"
+        android:id="@+id/lblDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Xxxx"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/lblDeliveryOrPickup" />
 
 
     <ScrollView
@@ -382,5 +382,15 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/lblCount"
         app:layout_constraintTop_toBottomOf="@+id/lblCount" />
+
+    <TextView
+        android:id="@+id/lblTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="XXX"
+        app:layout_constraintBottom_toBottomOf="@+id/lblDate"
+        app:layout_constraintStart_toEndOf="@+id/lblDate"
+        app:layout_constraintTop_toTopOf="@+id/lblDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
