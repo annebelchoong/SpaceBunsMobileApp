@@ -31,7 +31,7 @@ class ConfirmPaymentFragment : Fragment() {
         binding.btnConfirmPayment.setOnClickListener {
             lifecycleScope.launch{
                 setOrder(id)
-
+                deleteAll(id)
             }
         }
         return binding.root
@@ -72,6 +72,12 @@ class ConfirmPaymentFragment : Fragment() {
         }
 
 
+    }
+    private suspend fun deleteAll(u: String){
+        val cartline = vm.getCartLine(u)
+        for(c in cartline){
+            vm.delete(u, c.productId)
+        }
     }
 }
 
