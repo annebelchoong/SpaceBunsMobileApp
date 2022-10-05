@@ -54,12 +54,13 @@
         android:id="@+id/txtTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="40dp"
         android:text="0.00"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="76dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/txtQuantity"
@@ -105,12 +106,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="8dp"
         android:text="RM"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/txtTotalPrice"
-        app:layout_constraintEnd_toStartOf="@+id/txtTotalPrice"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtTotalPrice" />
 

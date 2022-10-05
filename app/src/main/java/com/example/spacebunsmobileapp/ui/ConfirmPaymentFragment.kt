@@ -30,8 +30,11 @@ class ConfirmPaymentFragment : Fragment() {
 
         binding.btnConfirmPayment.setOnClickListener {
             lifecycleScope.launch{
-                setOrder(id)
-                deleteAll(id)
+                if(id != null){
+                    setOrder(id)
+                    deleteAll(id)
+                }
+
             }
         }
         return binding.root
@@ -57,19 +60,19 @@ class ConfirmPaymentFragment : Fragment() {
 
     }
     private suspend fun setOrderDetails(uId: String, orderId: String){
-        val cartline = vm.getCartLine(uId)
-        val orderD = OrderDetails()
+            val cartline = vm.getCartLine(uId)
+            val orderD = OrderDetails()
 
-        orderD.orderId = orderId
-        for (c in cartline){
-            orderD.productId = c.productId
-            orderD.quantity = c.quantity
-            orderD.price = c.price
-            orderD.productName = c.productName
-            orderD.totalPrice = c.totalPrice
-            orderD.photo = c.photo
-            vm.setOrderDetail(orderD)
-        }
+            orderD.orderId = orderId
+            for (c in cartline) {
+                orderD.productId = c.productId
+                orderD.quantity = c.quantity
+                orderD.price = c.price
+                orderD.productName = c.productName
+                orderD.totalPrice = c.totalPrice
+                orderD.photo = c.photo
+                vm.setOrderDetail(orderD)
+            }
 
 
     }

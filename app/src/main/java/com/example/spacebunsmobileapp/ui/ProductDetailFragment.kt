@@ -47,7 +47,7 @@ class ProductDetailFragment : Fragment() {
             binding.txtProductName.text = product.name
             binding.txtDesc.text = product.desc
             vm.productId = product.id
-            binding.txtTotalPrice.text = product.price.toString()
+            binding.txtTotalPrice.text = " ${"%.2f".format(product.price)}"
 
         }
 
