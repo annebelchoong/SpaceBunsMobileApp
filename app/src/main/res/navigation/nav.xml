@@ -55,8 +55,6 @@
         android:name="com.example.spacebunsmobileapp.ui.UpdateProfileFragment"
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" />
-
-    tools:layout="@layout/fragment_donation" />
     <fragment
         android:id="@+id/miniDeliveryFragment"
         android:name="com.example.spacebunsmobileapp.ui.MiniDeliveryFragment"
