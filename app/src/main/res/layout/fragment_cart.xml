@@ -45,32 +45,29 @@
         android:id="@+id/lblDeliveryOrPickup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:text="XXX"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGoBack" />
 
     <TextView
         android:id="@+id/lblAddress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="XXXXX"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lblDate"
         app:layout_constraintTop_toBottomOf="@+id/lblDate" />
 
     <TextView
         android:id="@+id/lblDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Xxxx"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lblDeliveryOrPickup"
         app:layout_constraintTop_toBottomOf="@+id/lblDeliveryOrPickup" />
 
 
@@ -402,5 +399,19 @@
         app:layout_constraintBottom_toBottomOf="@+id/lblDate"
         app:layout_constraintStart_toEndOf="@+id/lblDate"
         app:layout_constraintTop_toTopOf="@+id/lblDate" />
+
+    <Button
+        android:id="@+id/btnGoBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:minWidth="0dp"
+        android:paddingHorizontal="0dp"
+        app:icon="@drawable/ic_round_arrow_back_24"
+        app:iconPadding="0dp"
+        app:iconTint="@color/gold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
