@@ -72,6 +72,8 @@ class CartFragment : Fragment() {
 
         }
 
+        binding.btnGoBack.setOnClickListener { nav.navigate(R.id.menuFragment) }
+
         binding.btnCheckout.setOnClickListener {
             if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
 
@@ -90,6 +92,7 @@ class CartFragment : Fragment() {
 
         binding.lblDate.text = vm.dateTime.format(DateTimeFormatter.ofPattern("dd MMMM yyyy "))
         binding.lblTime.text = vm.dateTime.format(DateTimeFormatter.ofPattern("hh:mm a"))
+        binding.lblAddress.text = vm.address
 
 
         return binding.root
