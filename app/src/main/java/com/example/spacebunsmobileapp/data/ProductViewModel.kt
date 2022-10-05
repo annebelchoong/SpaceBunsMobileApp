@@ -82,4 +82,24 @@ class ProductViewModel: ViewModel() {
 
     }
 
+    suspend fun getAmount(u:String): Double {
+        val user = getUserId(u)!!
+
+        val getProducts = CART
+            .document(user.customerId)
+            .collection("cart")
+            .get()
+            .await()
+            .toObjects<Cart>()
+
+        var total = 0.00
+        var final = 0.00
+        for(p in getProducts){
+            total = p.price * p.quantity
+            final += total
+        }
+
+        return final
+    }
+
 }

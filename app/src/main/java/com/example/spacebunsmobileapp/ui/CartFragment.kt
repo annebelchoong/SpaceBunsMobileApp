@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.spacebunsmobileapp.R
-import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentCartBinding
 import com.example.spacebunsmobileapp.util.CartAdapter
@@ -26,7 +26,6 @@ class CartFragment : Fragment() {
     private val vm: ProductViewModel by activityViewModels()
 
     private val id by lazy {arguments?.getString("id","")?: ""}
-
     val custId = "U001"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -47,6 +46,16 @@ class CartFragment : Fragment() {
             val product = vm.getCartLine(custId)
             adapter.submitList(product)
             binding.lblCount.text = "${product.size} Product(s)"
+
+            val amount = vm.getAmount(custId)
+            binding.txtAmount.text = "RM ${"%.2f".format(amount)}"
+            binding.txtVoucher.text = 10.toString()
+            var voucher = binding.txtVoucher.text.toString().toIntOrNull()?:0
+            var subtotal = (amount * (100-voucher))/100
+            binding.txtSubtotal.text = "RM ${"%.2f".format(subtotal)}"
+            var grandTotal = subtotal + 3
+            binding.txtGrandAmount.text = "RM ${"%.2f".format(grandTotal)}"
+            binding.lblTotalPrice.text = "RM ${"%.2f".format(grandTotal)}"
         }
 
         binding.btnCheckout.setOnClickListener {
