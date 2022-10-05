@@ -1,6 +1,7 @@
 package com.example.spacebunsmobileapp
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val nav by lazy { supportFragmentManager.findFragmentById(R.id.host)!!.findNavController() }
+//    private val auth: AuthViewModel by viewModels()
 
 
 

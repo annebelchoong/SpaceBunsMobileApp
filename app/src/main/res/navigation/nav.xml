@@ -24,6 +24,43 @@
         android:id="@+id/donationFragment"
         android:name="com.example.spacebunsmobileapp.ui.RewardFragment"
         android:label="Reward"
+        tools:layout="@layout/fragment_reward" />
+    <activity
+        android:id="@+id/changeEmailActivity"
+        android:name="com.example.spacebunsmobileapp.ui.ChangeEmailActivity"
+        android:label="activity_change_email"
+        tools:layout="@layout/activity_change_email" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.spacebunsmobileapp.ui.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.spacebunsmobileapp.ui.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/resetPasswordActivity"
+        android:name="com.example.spacebunsmobileapp.ui.ResetPasswordActivity"
+        android:label="activity_reset_password"
+        tools:layout="@layout/activity_reset_password" />
+    <activity
+        android:id="@+id/codeScannerActivity"
+        android:name="com.example.spacebunsmobileapp.ui.CodeScannerActivity"
+        android:label="activity_code_scanner"
+        tools:layout="@layout/activity_code_scanner" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.spacebunsmobileapp.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.example.spacebunsmobileapp.ui.UpdateProfileFragment"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
+
         tools:layout="@layout/fragment_donation" />
     <fragment
         android:id="@+id/miniDeliveryFragment"
@@ -60,4 +97,5 @@
         android:name="com.example.spacebunsmobileapp.ui.CartUpdateFragment"
         android:label="fragment_cart_update"
         tools:layout="@layout/fragment_cart_update" />
+
 </navigation>
