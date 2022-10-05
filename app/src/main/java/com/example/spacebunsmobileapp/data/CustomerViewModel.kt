@@ -31,37 +31,37 @@ class CustomerViewModel : ViewModel() {
         customers.value?.forEach { col.document(it.id).delete() }
     }
 
-    fun set(f: Customer) {
-        col.document(f.id).set(f)
+    fun set(c: Customer) {
+        col.document(c.id).set(c)
     }
 
     //----------------------------------------------------------------------------------------------
     private fun idExists(id: String) = customers.value?.any { it.id == id } ?: false
 
-    fun validate(f: Customer, insert: Boolean = true): String {
+    fun validate(c: Customer, insert: Boolean = true): String {
         val regexId = Regex("""^[A-Z]\d{3}$""")
         var e = ""
 
         if (insert) {
-            e += if (f.id == "") "- Id is required.\n"
-            else if (!f.id.matches(regexId)) "- Id format is invalid (format: X999).\n"
-            else if (idExists(f.id)) "- Id is duplicated.\n"
+            e += if (c.id == "") "- Id is required.\n"
+            else if (!c.id.matches(regexId)) "- Id format is invalid (format: X999).\n"
+            else if (idExists(c.id)) "- Id is duplicated.\n"
             else ""
         }
 
-        e += if (f.name == "") "- Name is required.\n"
-        else if (f.name.length < 3) "- Name is too short (at least 3 letters).\n"
+        e += if (c.name == "") "- Name is required.\n"
+        else if (c.name.length < 3) "- Name is too short (at least 3 letters).\n"
         else ""
 
-        e += if (f.phone == "") "- Phone no is required.\n"
-        else if (f.phone.length < 11) "- Phone no is invalid.\n"
+        e += if (c.phone == "") "- Phone no is required.\n"
+        else if (c.phone.length < 11) "- Phone no is invalid.\n"
         else ""
 
-        e += if (f.address == "") "- Address is required.\n"
-        else if (f.address.length < 50) "- Address is invalid.\n"
+        e += if (c.address == "") "- Address is required.\n"
+        else if (c.address.length < 50) "- Address is invalid.\n"
         else ""
 
-        e += if (f.photo.toBytes().isEmpty()) "- Photo is required.\n"
+        e += if (c.photo.toBytes().isEmpty()) "- Photo is required.\n"
         else ""
 
         return e
