@@ -1,5 +1,5 @@
-package com.example.spacebunsmobileapp.util
 
+package com.example.spacebunsmobileapp.util
 import android.app.AlertDialog
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -7,7 +7,6 @@ import android.widget.ImageView
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.scale
 import androidx.fragment.app.Fragment
-//import com.example.firebasedemo.R
 import com.example.spacebunsmobileapp.R
 import com.google.firebase.firestore.Blob
 import java.io.ByteArrayOutputStream
@@ -17,24 +16,24 @@ import java.io.ByteArrayOutputStream
 // ----------------------------------------------------------------------------
 
 // Usage: Show an error dialog from fragment
-//fun Fragment.errorDialog(text: String) {
-//    AlertDialog.Builder(context)
-//        .setIcon(R.drawable.ic_error)
-//        .setTitle("Error")
-//        .setMessage(text)
-//        .setPositiveButton("Dismiss", null)
-//        .show()
-//}
-//
-//// Usage: Show an information dialog from fragment
-//fun Fragment.infoDialog(text: String) {
-//    AlertDialog.Builder(context)
-//        .setIcon(R.drawable.ic_info)
-//        .setTitle("Information")
-//        .setMessage(text)
-//        .setPositiveButton("Dismiss", null)
-//        .show()
-//}
+fun Fragment.errorDialog(text: String) {
+    AlertDialog.Builder(context)
+        .setIcon(R.drawable.ic_error)
+        .setTitle("Error")
+        .setMessage(text)
+        .setPositiveButton("Dismiss", null)
+        .show()
+}
+
+// Usage: Show an information dialog from fragment
+fun Fragment.infoDialog(text: String) {
+    AlertDialog.Builder(context)
+        .setIcon(R.drawable.ic_info)
+        .setTitle("Information")
+        .setMessage(text)
+        .setPositiveButton("Dismiss", null)
+        .show()
+}
 
 // ----------------------------------------------------------------------------
 // Bitmap Extensions
@@ -107,4 +106,6 @@ fun ImageView.cropToBlob(width: Int, height: Int): Blob {
 // Usage: Load Firebase Blob
 fun ImageView.setImageBlob(blob: Blob) {
     this.setImageBitmap(blob.toBitmap())
+
 }
+
