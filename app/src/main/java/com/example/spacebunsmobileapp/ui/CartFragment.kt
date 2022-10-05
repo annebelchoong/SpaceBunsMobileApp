@@ -61,12 +61,15 @@ class CartFragment : Fragment() {
         }
 
         binding.btnCheckout.setOnClickListener {
-            if (LocalTime.now().isAfter(LocalTime.parse("22:00:00")) && LocalTime.now().isBefore(
-                    LocalTime.parse("09:00:00"))) {
-//                nav.navigate(R.id.dateTimeFragment)
+            if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
+
             }else{
                 Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
             }
+        }
+
+        binding.btnApply.setOnClickListener {
+            applyVoucher()
         }
 
         binding.lblDate.text = vm.dateTime.format(DateTimeFormatter.ofPattern("dd MMMM yyyy "))
@@ -74,6 +77,10 @@ class CartFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun applyVoucher() {
+
     }
 
     // for now user use string, need to change to user
