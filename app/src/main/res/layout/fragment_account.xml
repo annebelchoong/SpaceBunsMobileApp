@@ -4,11 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/gold"
     tools:context=".ui.AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/cv_currentPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -234,7 +247,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/teal_700"
                 android:text="Email Verification" />
-<!--                android:layout_marginTop="20dp"-->
+            <!--                android:layout_marginTop="20dp"-->
 
             <Button
                 android:id="@+id/btnProfile"
@@ -289,7 +302,6 @@
 
         </LinearLayout>
 
-
-    //</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
