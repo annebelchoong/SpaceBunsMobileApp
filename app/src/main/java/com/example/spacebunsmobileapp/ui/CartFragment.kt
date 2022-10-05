@@ -76,7 +76,9 @@ class CartFragment : Fragment() {
 
         binding.btnCheckout.setOnClickListener {
             if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
-
+                if (user != null) {
+                    nav.navigate(R.id.confirmPaymentFragment, bundleOf("id" to user.uid))
+                }
             }else{
                 Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
             }
@@ -93,6 +95,11 @@ class CartFragment : Fragment() {
         binding.lblDate.text = vm.dateTime.format(DateTimeFormatter.ofPattern("dd MMMM yyyy "))
         binding.lblTime.text = vm.dateTime.format(DateTimeFormatter.ofPattern("hh:mm a"))
         binding.lblAddress.text = vm.address
+        when (binding.radioGroup.checkedRadioButtonId){
+            binding.rbtnCreditCard.id -> vm.paymentMethod = "Credit Card"
+            binding.rbtnEwallet.id -> vm.paymentMethod = "E-wallet"
+            binding.rbtnOnlineBanking.id -> vm.paymentMethod = "Online banking"
+        }
 
 
         return binding.root
@@ -109,14 +116,15 @@ class CartFragment : Fragment() {
         }
             for (v in voucher) {
                 if (code == v.voucherCode && user != null) {
+                    vm.voucher = v.voucherId
                     var total = vm.getAmount(user.uid)
                     var discount = v.discountPercentage / 100
                     var deduct = total * discount
 //                binding.txtVoucher.text = (total * (v.discountPercentage/100 )).toString()
                     binding.txtVoucher.text = df.format(deduct).toString()
-                    var subtotal = total - deduct
-                    binding.txtSubtotal.text = "RM ${"%.2f".format(subtotal)}"
-                    vm.grandTotal = subtotal + 3
+                    vm.subtotal = total - deduct
+                    binding.txtSubtotal.text = "RM ${"%.2f".format(vm.subtotal)}"
+                    vm.grandTotal = vm.subtotal + 3
                     binding.txtGrandAmount.text = "RM ${"%.2f".format(vm.grandTotal)}"
                     binding.lblTotalPrice.text = "RM ${"%.2f".format(vm.grandTotal)}"
                 }
