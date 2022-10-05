@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
 import androidx.core.util.rangeTo
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
@@ -21,7 +22,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
 
-class DateTimeFragment : Fragment() {
+class DateTimeFragment : DialogFragment() {
     private lateinit var binding: FragmentDateTimeBinding
     private val nav by lazy { findNavController() }
     private val vm: ProductViewModel by activityViewModels()
