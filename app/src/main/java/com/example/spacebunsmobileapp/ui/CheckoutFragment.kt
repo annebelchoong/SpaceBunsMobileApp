@@ -63,20 +63,20 @@ class CheckoutFragment : Fragment() {
             "pk_test_51LWbMdCffsYKlOgZJQu5OlKPoEe978IKUuzKJjwcW0ZDwb46LaVT09D3svdGTvaWoavzzCTqo9fM7DztaOL8dSGu00MhmVJabg"
         )
 
-        binding.loginButton.setOnClickListener {
-            // login to firebase
-            val providers = arrayListOf(
-                AuthUI.IdpConfig.EmailBuilder().build()
-            )
-
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setAvailableProviders(providers)
-                    .build(),
-                RC_SIGN_IN
-            )
-        }
+//        binding.loginButton.setOnClickListener {
+//            // login to firebase
+//            val providers = arrayListOf(
+//                AuthUI.IdpConfig.EmailBuilder().build()
+//            )
+//
+//            startActivityForResult(
+//                AuthUI.getInstance()
+//                    .createSignInIntentBuilder()
+//                    .setAvailableProviders(providers)
+//                    .build(),
+//                RC_SIGN_IN
+//            )
+//        }
 
         binding.payButton.setOnClickListener {
             confirmPayment(selectedPaymentMethod.id!!)

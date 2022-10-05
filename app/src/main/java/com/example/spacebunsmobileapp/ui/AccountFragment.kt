@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,10 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import com.example.spacebunsmobileapp.R
+import com.example.spacebunsmobileapp.RC_SIGN_IN
 import com.example.spacebunsmobileapp.databinding.FragmentAccountBinding
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -23,9 +27,9 @@ import java.io.ByteArrayOutputStream
 
 class AccountFragment : Fragment() {
     //private lateinit var binding: FragmentAccountBinding
-    private var _binding : FragmentAccountBinding? = null
-    lateinit var auth : FirebaseAuth
-    private lateinit var imgUri : Uri
+    private var _binding: FragmentAccountBinding? = null
+    lateinit var auth: FirebaseAuth
+    private lateinit var imgUri: Uri
 
     private val binding get() = _binding!!
 
@@ -48,13 +52,28 @@ class AccountFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
 
+        binding.loginButton.setOnClickListener {
+            // login to firebase
+            val providers = arrayListOf(
+                AuthUI.IdpConfig.EmailBuilder().build()
+            )
+
+            startActivityForResult(
+                AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setAvailableProviders(providers)
+                    .build(),
+                RC_SIGN_IN
+            )
+        }
+
         //whether user login or not
-        if (user != null){
+        if (user != null) {
             //binding.edtName.setText(user.displayName)
             binding.edtEmail.setText(user.email)
 
             //whether email is verified
-            if (user.isEmailVerified){
+            if (user.isEmailVerified) {
                 binding.iconVerify.visibility = View.VISIBLE
                 binding.iconNotVerify.visibility = View.GONE
             } else {
@@ -128,7 +147,7 @@ class AccountFragment : Fragment() {
             }
 
             user.let {
-                val userCredential = EmailAuthProvider.getCredential(it?.email!!,pass)
+                val userCredential = EmailAuthProvider.getCredential(it?.email!!, pass)
                 it.reauthenticate(userCredential).addOnCompleteListener { task ->
                     when {
                         task.isSuccessful -> {
@@ -140,7 +159,11 @@ class AccountFragment : Fragment() {
                             binding.edtCurrentPassword.requestFocus()
                         }
                         else -> {
-                            Toast.makeText(activity, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                activity,
+                                "${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
@@ -162,7 +185,7 @@ class AccountFragment : Fragment() {
                     return@newChangePassword
                 }
 
-                if(passConfirm.isEmpty()){
+                if (passConfirm.isEmpty()) {
                     binding.edtCurrentPassword.error = "Retype new password!"
                     binding.edtCurrentPassword.requestFocus()
                     return@newChangePassword
@@ -188,11 +211,16 @@ class AccountFragment : Fragment() {
 
                 user?.let {
                     user.updatePassword(newPass).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            Toast.makeText(activity, "Password is Update Successfully!", Toast.LENGTH_SHORT).show()
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                activity,
+                                "Password is Update Successfully!",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             successLogout()
                         } else {
-                            Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 }
@@ -215,7 +243,7 @@ class AccountFragment : Fragment() {
     private fun emailVerification() {
         val user = auth.currentUser
         user?.sendEmailVerification()?.addOnCompleteListener {
-            if(it.isSuccessful){
+            if (it.isSuccessful) {
                 Toast.makeText(activity, "Verification email is send", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(activity, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
@@ -243,15 +271,16 @@ class AccountFragment : Fragment() {
 
     private fun uploadImgToFirebase(imgBitmap: Bitmap) {
         val baos = ByteArrayOutputStream()
-        val ref = FirebaseStorage.getInstance().reference.child("img_user/${FirebaseAuth.getInstance().currentUser?.email}")
+        val ref =
+            FirebaseStorage.getInstance().reference.child("img_user/${FirebaseAuth.getInstance().currentUser?.email}")
         imgBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
 
         val img = baos.toByteArray()
         ref.putBytes(img)
-            .addOnCompleteListener{
-                if (it.isSuccessful){
-                    ref.downloadUrl.addOnCompleteListener { Task->
-                        Task.result.let{ Uri ->
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    ref.downloadUrl.addOnCompleteListener { Task ->
+                        Task.result.let { Uri ->
                             imgUri = Uri
                             binding.imgUser.setImageBitmap(imgBitmap)
                         }
@@ -263,12 +292,47 @@ class AccountFragment : Fragment() {
     private fun btnLogout() {
         auth = FirebaseAuth.getInstance()
         auth.signOut()
-        val intent = Intent(context,LoginActivity::class.java)
+        val intent = Intent(context, LoginActivity::class.java)
         startActivity(intent)
         activity?.finish()
     }
 
-    companion object{
+    companion object {
         const val REQ_CAM = 100
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        val applicationContext = requireActivity().application  // get context
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val response = IdpResponse.fromResultIntent(data)
+
+            if (resultCode == Activity.RESULT_OK) {
+                val user = FirebaseAuth.getInstance().currentUser
+
+                Log.d("Login", "User ${user?.displayName} has signed in.")
+                Toast.makeText(
+                    applicationContext,
+                    "Welcome ${user?.displayName}",
+                    Toast.LENGTH_SHORT
+                ).show()
+                showUI()
+            } else {
+                Log.d("Login", "Signing in failed!")
+                Toast.makeText(
+                    applicationContext,
+                    response?.error?.message ?: "Sign in failed",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+//        } else {
+//            paymentSession.handlePaymentData(requestCode, resultCode, data ?: Intent())
+        }
+    }
+
+    private fun showUI() {
+        TODO("Here should show the UI if the user has logged in")
     }
 }
