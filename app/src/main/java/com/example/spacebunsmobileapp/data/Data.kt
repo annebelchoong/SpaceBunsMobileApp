@@ -41,6 +41,12 @@ data class User(
     var customerId: String = ""
 )
 
+data class Voucher(
+    var voucherId: String = "",
+    var voucherCode: String = "",
+    var discountPercentage: Int = 0,
+    var usedCount: Int = 0,
+)
 val PRODUCTS = Firebase.firestore.collection("products")
 //val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
 val CUST = Firebase.firestore.collection("usersTest")
