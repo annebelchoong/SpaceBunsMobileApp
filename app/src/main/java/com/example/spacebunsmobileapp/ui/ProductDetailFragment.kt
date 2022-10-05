@@ -14,17 +14,20 @@ import com.example.spacebunsmobileapp.util.cropToBlob
 import com.example.spacebunsmobileapp.util.setImageBlob
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.Cart
+import com.example.spacebunsmobileapp.data.Customer
 import com.example.spacebunsmobileapp.data.ProductViewModel
-import com.example.spacebunsmobileapp.data.User
 import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProductDetailBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class ProductDetailFragment : Fragment() {
     private lateinit var binding: FragmentProductDetailBinding
     private val nav by lazy { findNavController() }
     private val vm: ProductViewModel by activityViewModels()
+    lateinit var auth: FirebaseAuth
+
 
     private val id by lazy {arguments?.getString("id","")?: ""}
 
@@ -36,6 +39,7 @@ class ProductDetailFragment : Fragment() {
         binding.btnBack.setOnClickListener {
             nav.navigate(R.id.menuFragment)
         }
+
 
         lifecycleScope.launch {
             val product = vm.get(id)!!
@@ -58,7 +62,9 @@ class ProductDetailFragment : Fragment() {
 
     private fun addToCart() {
             val c = Cart()
-            val u = User()
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
 
             c.productId = vm.productId
             c.productName = binding.txtProductName.text.toString()
@@ -66,9 +72,11 @@ class ProductDetailFragment : Fragment() {
             c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull()?: 0.00
             c.totalPrice = c.quantity * c.price
             c.photo = binding.imageView3.cropToBlob(300, 300)
-            u.customerId = "U001"
+//            u.customerId = "U001"
 
-            vm.setCart(c,u)
+        if (user != null) {
+            vm.setCart(c, user.uid)
+        }
 
             nav.navigateUp()
 

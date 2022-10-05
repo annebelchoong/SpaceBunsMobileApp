@@ -17,6 +17,7 @@ import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.MENU
 import com.example.spacebunsmobileapp.data.SpaceBunsViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentMenuBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MenuFragment : Fragment() {
     private lateinit var binding: FragmentMenuBinding
@@ -24,6 +25,7 @@ class MenuFragment : Fragment() {
     private val vm: SpaceBunsViewModel by activityViewModels()
 
     private lateinit var adapter: ProductAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

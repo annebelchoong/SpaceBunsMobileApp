@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.Customer
 import com.example.spacebunsmobileapp.data.CustomerViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentUpdateProfileBinding
@@ -71,7 +70,7 @@ class UpdateProfileFragment : Fragment() {
     private fun submit() {
         val c = Customer(
             name = binding.edtName.text.toString().trim(),
-            phone= binding.edtPhone.text.toString(),
+            phone = binding.edtPhone.text.toString(),
             address = binding.edtAddress.text.toString().trim(),
             // TODO: Photo
             photo = binding.imgUser.cropToBlob(300,300)

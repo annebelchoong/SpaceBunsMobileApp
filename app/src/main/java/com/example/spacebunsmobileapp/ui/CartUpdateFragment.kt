@@ -11,31 +11,38 @@ import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.Cart
 import com.example.spacebunsmobileapp.data.ProductViewModel
-import com.example.spacebunsmobileapp.data.User
 import com.example.spacebunsmobileapp.databinding.FragmentCartUpdateBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProductDetailBinding
 import com.example.spacebunsmobileapp.util.cropToBlob
 import com.example.spacebunsmobileapp.util.setImageBlob
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class CartUpdateFragment : Fragment() {
     private lateinit var binding: FragmentCartUpdateBinding
     private val nav by lazy { findNavController() }
     private val vm: ProductViewModel by activityViewModels()
+    lateinit var auth: FirebaseAuth
+
 
     private val id by lazy {arguments?.getString("id","")?: ""}
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentCartUpdateBinding.inflate(inflater, container, false)
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
 
         lifecycleScope.launch {
-            val cart = vm.getCart(id, "U001")!!
-            binding.imageView4.setImageBlob(cart.photo)
-            binding.txtProductName2.text = cart.productName
-            binding.txtQuantity2.setText(cart.quantity.toString())
-            binding.txtTotalPrice2.text = cart.price.toString()
-            vm.productId = cart.productId
+            if(user != null){
+                val cart = vm.getCart(id, user.uid)!!
+                binding.imageView4.setImageBlob(cart.photo)
+                binding.txtProductName2.text = cart.productName
+                binding.txtQuantity2.setText(cart.quantity.toString())
+                binding.txtTotalPrice2.text = cart.price.toString()
+                vm.productId = cart.productId
+
+            }
         }
 
         binding.btnAddToCart2.setOnClickListener {
@@ -49,7 +56,9 @@ class CartUpdateFragment : Fragment() {
 
     private fun addToCart() {
         val c = Cart()
-        val u = User()
+//        val u = User()
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
 
         c.productId = vm.productId
         c.productName = binding.txtProductName2.text.toString()
@@ -57,9 +66,11 @@ class CartUpdateFragment : Fragment() {
         c.price = binding.txtTotalPrice2.text.toString().toDoubleOrNull()?: 0.00
         c.totalPrice = c.quantity * c.price
         c.photo = binding.imageView4.cropToBlob(300, 300)
-        u.customerId = "U001"
+//        u.customerId = "U001"
 
-        vm.setCart(c,u)
+        if (user != null) {
+            vm.setCart(c, user.uid)
+        }
 
         nav.navigateUp()
 
