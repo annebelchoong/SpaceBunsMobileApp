@@ -11,6 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation
+import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.databinding.FragmentAccountBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -60,11 +63,15 @@ class AccountFragment : Fragment() {
             }
         }
 
+        binding.btnProfile.setOnClickListener {
+            btnProfile()
+        }
+
         binding.imgUser.setOnClickListener {
             goToCamera()
         }
 
-        binding.btn_logout.setOnClickListener {
+        binding.btnLogout.setOnClickListener {
             btnLogout()
         }
 
@@ -83,6 +90,11 @@ class AccountFragment : Fragment() {
 //        binding.btnScanQR.setOnClickListener {
 //            scanQRCode()
 //        }
+    }
+
+    private fun btnProfile() {
+//        var intent = Intent(view.context, ProfileFragment::class.java)
+//        startActivity(intent)
     }
 
 //    private fun scanQRCode() {
