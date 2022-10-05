@@ -36,7 +36,7 @@ class HomeFragment : Fragment() {
             if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
                 nav.navigate(R.id.dateTimeFragment)
             }else{
-                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
             }
     }
 
