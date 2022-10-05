@@ -95,6 +95,11 @@
         android:name="com.example.spacebunsmobileapp.ui.DonationFragment"
         android:label="Donations"
         tools:layout="@layout/fragment_donation" />
+    <fragment
+        android:id="@+id/confirmPaymentFragment"
+        android:name="com.example.spacebunsmobileapp.ui.ConfirmPaymentFragment"
+        android:label="Cofnrim Payment"
+        tools:layout="@layout/fragment_confirm_payment" />
 
 
 </navigation>
