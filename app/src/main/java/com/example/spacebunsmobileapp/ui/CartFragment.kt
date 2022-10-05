@@ -51,6 +51,13 @@ class CartFragment : Fragment() {
 
             val amount = vm.getAmount(custId)
             binding.txtAmount.text = "RM ${"%.2f".format(amount)}"
+            binding.txtVoucher.text = 10.toString()
+            var voucher = binding.txtVoucher.text.toString().toIntOrNull()?:0
+            var subtotal = (amount * (100-voucher))/100
+            binding.txtSubtotal.text = "RM ${"%.2f".format(subtotal)}"
+            var grandTotal = subtotal + 3
+            binding.txtGrandAmount.text = "RM ${"%.2f".format(grandTotal)}"
+            binding.lblTotalPrice.text = "RM ${"%.2f".format(grandTotal)}"
         }
 
         binding.btnCheckout.setOnClickListener {
