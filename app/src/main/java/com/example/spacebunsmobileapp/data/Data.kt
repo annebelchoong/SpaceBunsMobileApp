@@ -1,5 +1,6 @@
 package com.example.spacebunsmobileapp.data
 
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.Blob
 import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.FirebaseFirestore
@@ -13,15 +14,15 @@ data class Order(
     var id: String=""
 )
 
-data class Customer (
+data class Customer(
     @DocumentId
-    var id      : String = "",
-    var email   : String = "",
+    var id: String = "",
+    var email: String = "",
     var password: String = "",
-    var name    : String = "",
-    var phone   : String = "",
-    var address : String = "",
-    var photo   : Blob   = Blob.fromBytes(ByteArray(0)),
+    var name: String = "",
+    var phone: String = "",
+    var address: String = "",
+    var photo: Blob   = Blob.fromBytes(ByteArray(0)),
 )
 
 data class Menu(
@@ -50,12 +51,8 @@ data class Cart(
 //    var product: Cart = Cart()
 }
 
-data class User(
-    @DocumentId
-    var customerId: String = ""
-)
-
 data class Voucher(
+    @DocumentId
     var voucherId: String = "",
     var voucherCode: String = "",
     var discountPercentage: Double = 0.0,
@@ -63,6 +60,6 @@ data class Voucher(
 )
 val PRODUCTS = Firebase.firestore.collection("products")
 //val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
-val CUST = Firebase.firestore.collection("usersTest")
+val CUST = Firebase.firestore.collection("customers")
 val VOUCHERS = Firebase.firestore.collection("vouchers")
 
