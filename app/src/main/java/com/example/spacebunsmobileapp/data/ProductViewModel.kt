@@ -13,6 +13,8 @@ class ProductViewModel: ViewModel() {
 
     var productId = ""
     var grandTotal = 0.00
+    var address = ""
+    var orderType= "" // for delivery or pick up
     var dateTime = LocalDateTime.now()
     val CART = Firebase.firestore.collection("customers")
     private val products = MutableLiveData<List<Menu>>()
