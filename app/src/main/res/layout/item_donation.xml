@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="4dp"
+    android:paddingVertical="4dp">
+
+    <TextView
+        android:id="@+id/txtDonationId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="D001"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDonorName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Charles White"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDonationId"
+        app:layout_constraintEnd_toStartOf="@+id/txtDonationAmount"
+        app:layout_constraintStart_toEndOf="@+id/txtDonationId"
+        app:layout_constraintTop_toTopOf="@+id/txtDonationId" />
+
+    <TextView
+        android:id="@+id/txtDonationAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="50.69"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDonationId"
+        app:layout_constraintEnd_toStartOf="@+id/txtDonationDate"
+        app:layout_constraintTop_toTopOf="@+id/txtDonationId" />
+
+    <TextView
+        android:id="@+id/txtDonationDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="2/10/2022"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDonationId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtDonationId" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

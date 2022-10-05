@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true"
+        tools:context=".ui.DonationsFragment">
+
+        <view
+            android:id="@+id/cardShadowProgress1"
+            class="androidx.constraintlayout.widget.ConstraintLayout"
+            android:layout_width="350dp"
+            android:layout_height="370dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <view
+            android:id="@+id/cardProgress1"
+            class="androidx.constraintlayout.widget.ConstraintLayout"
+            android:layout_width="350dp"
+            android:layout_height="360dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_rectangle_white"
+            app:layout_constraintBottom_toBottomOf="@+id/cardShadowProgress1"
+            app:layout_constraintEnd_toEndOf="@+id/cardShadowProgress1"
+            app:layout_constraintStart_toStartOf="@+id/cardShadowProgress1"
+            app:layout_constraintTop_toTopOf="@+id/cardShadowProgress1" />
+
+        <ProgressBar
+            android:id="@+id/pbDonationDetail"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:indeterminateOnly="false"
+            android:progressDrawable="@drawable/circular_progressbar"
+            app:layout_constraintBottom_toBottomOf="@+id/cardProgress1"
+            app:layout_constraintEnd_toEndOf="@+id/cardProgress1"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/cardProgress1"
+            app:layout_constraintTop_toTopOf="@+id/cardShadowProgress1"
+            app:layout_constraintVertical_bias="0.0"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/txtDonationDetailProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/pbDonationDetail"
+            app:layout_constraintEnd_toEndOf="@+id/pbDonationDetail"
+            app:layout_constraintStart_toStartOf="@+id/pbDonationDetail"
+            app:layout_constraintTop_toTopOf="@+id/cardShadowProgress1"
+            tools:text="60%" />
+
+        <TextView
+            android:id="@+id/txtDonationGoalProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/pbDonationDetail"
+            app:layout_constraintEnd_toEndOf="@+id/cardProgress1"
+            app:layout_constraintStart_toStartOf="@+id/cardProgress1"
+            tools:text="RM350493 out of RM650000 " />
+
+        <Button
+            android:id="@+id/btnMakeDonation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Make Donation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pbDonationDetail" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="144dp" />
+
+        <!--        <view-->
+        <!--            android:id="@+id/cardShadowProgress5"-->
+        <!--            class="androidx.constraintlayout.widget.ConstraintLayout"-->
+        <!--            android:layout_width="350dp"-->
+        <!--            android:layout_height="200dp"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:background="@drawable/shadow"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.491"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/cardShadowProgress1" />-->
+
+        <!--        <view-->
+        <!--            android:id="@+id/cardProgress5"-->
+        <!--            class="androidx.constraintlayout.widget.ConstraintLayout"-->
+        <!--            android:layout_width="350dp"-->
+        <!--            android:layout_height="190dp"-->
+        <!--            android:background="@drawable/rounded_rectangle_white"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/cardShadowProgress5"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/cardShadowProgress5"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/cardShadowProgress5"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/cardShadowProgress5"-->
+        <!--            app:layout_constraintVertical_bias="0.0" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnSubmit"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="20dp"-->
+        <!--            android:background="@drawable/rounded_rectangle_gold"-->
+        <!--            android:text="Update"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/btnReset"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/btnReset" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnReset"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="12dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:background="@android:color/transparent"-->
+        <!--            android:text="Reset"-->
+        <!--            android:textColor="@android:color/holo_red_dark"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/guideline"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/lblDonationGoal"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:labelFor="@id/edtVoucherCode"-->
+        <!--            android:text="Donation Goal"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="16sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/editTextNumber"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/guideline"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/editTextNumber" />-->
+
+        <!--        <androidx.constraintlayout.widget.Guideline-->
+        <!--            android:id="@+id/guideline3"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:layout_constraintGuide_begin="480dp" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/lblChangeDonationGoal"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="4dp"-->
+        <!--            android:text="Change Donation Goal"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="24sp"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/guideline3"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.497"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/cardShadowProgress5" />-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/editTextNumber"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:inputType="number"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/guideline"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/lblChangeDonationGoal" />-->
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDonations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:isScrollContainer="true"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:listitem="@layout/item_donation">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="XXX"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMakeDonation" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

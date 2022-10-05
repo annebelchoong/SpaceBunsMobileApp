@@ -88,6 +88,39 @@ data class User(
     var customerId: String = ""
 )
 
+data class DonationEvent(
+    @DocumentId
+    var donationEventId: String = "",
+    var donationEventName: String = "",
+    var donationGoal: Double = 0.00,
+    var donationProgress: Double = 0.00,
+    var donationEventPhoto: Blob = Blob.fromBytes(ByteArray(0)),
+    var donationStartDate: Date = Date() // current Date
+) {
+    // TODO(1): Additional field: [count] and [toString]
+    @get:Exclude    // excluded from firestore
+    var count: Int = 0
+    override fun toString() = donationEventName     // for spinner
+}
+
+data class DonationEventDetail(
+    @DocumentId
+    var donationId: String = "",
+    var donorName: String = "",
+    var donationAmount: Double = 0.00,
+    var donationEventId: String = "",
+    var donationDate: Date = Date() // current Date
+) {
+    // TODO(2): Additional field: [dEvent]
+
+    @get: Exclude
+    var donationEvent: DonationEvent = DonationEvent()
+}
+
+val DONATIONS = Firebase.firestore.collection("donations")
+
+val DONATION_EVENTS = Firebase.firestore.collection("donationEvents")
+
 val PRODUCTS = Firebase.firestore.collection("products")
 //val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
 val CUST = Firebase.firestore.collection("usersTest")

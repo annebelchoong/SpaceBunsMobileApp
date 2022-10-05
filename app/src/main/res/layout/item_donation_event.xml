@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:paddingHorizontal="4dp"
+    android:paddingVertical="4dp">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_language"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="90dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        android:src="@mipmap/ic_launcher"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ImageView
+        android:id="@+id/imgDonationEvent"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#CCC"
+        android:cropToPadding="true"
+        android:importantForAccessibility="no"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDonationEventId"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtDonationEventId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="DE01"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/imgDonationEvent"
+        app:layout_constraintStart_toStartOf="@+id/imgDonationEvent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDonationEventName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Burgers For Everyone"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgDonationEvent"
+        app:layout_constraintEnd_toStartOf="@+id/txtDonationGoal"
+        app:layout_constraintStart_toEndOf="@+id/txtDonationEventId"
+        app:layout_constraintTop_toTopOf="@+id/txtDonationEventId" />
+
+    <TextView
+        android:id="@+id/txtDonationGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="5000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtDonationCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDonationCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="40 Donations"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:indeterminateBehavior="cycle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgDonationEvent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDonationEventName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
