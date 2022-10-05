@@ -56,6 +56,10 @@
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" />
 
+    <fragment
+        android:id="@+id/donationFragment"
+        android:name="com.example.spacebunsmobileapp.ui.RewardFragment"
+        android:label="Reward"
         tools:layout="@layout/fragment_donation" />
     <fragment
         android:id="@+id/miniDeliveryFragment"
@@ -102,5 +106,4 @@
         android:name="com.example.spacebunsmobileapp.ui.DonationFragment"
         android:label="Donations"
         tools:layout="@layout/fragment_donation" />
-
 </navigation>

@@ -1,10 +1,7 @@
 package com.example.spacebunsmobileapp.ui
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
+
 import android.provider.MediaStore
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -33,13 +30,12 @@ class AccountFragment : Fragment() {
     lateinit var auth: FirebaseAuth
     private lateinit var imgUri: Uri
 
-    private val binding get() = _binding!!
+class AccountFragment : Fragment() {
+    private lateinit var binding: FragmentAccountBinding
+    private val nav by lazy { findNavController() }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding.root
     }
 
