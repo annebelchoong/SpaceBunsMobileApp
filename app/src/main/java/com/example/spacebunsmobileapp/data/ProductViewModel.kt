@@ -13,9 +13,12 @@ class ProductViewModel: ViewModel() {
 
     var productId = ""
     var grandTotal = 0.00
+    var subtotal = 0.00
     var address = ""
     var orderType= "" // for delivery or pick up
+    var voucher = ""
     var dateTime = LocalDateTime.now()
+    var paymentMethod = ""
     val CART = Firebase.firestore.collection("customers")
     private val products = MutableLiveData<List<Menu>>()
     private val cart = MutableLiveData<List<Cart>>()
@@ -113,6 +116,50 @@ class ProductViewModel: ViewModel() {
             .toObjects<Voucher>()
 
         return vouchers
+    }
+
+    fun set(o:Orders){
+        ORDERS.document(o.orderId).set(o)
+    }
+
+    suspend fun generateOrderId(): String{
+        val order = ORDERS.get().await().toObjects<Orders>()
+        var id = ""
+        if (order == null){
+            for(o in order){
+                o.orderId = "S1"
+            }
+        } else {
+            val size = order.size
+            id = "S${size+1}"
+        }
+
+        return id
+    }
+
+    suspend fun setOrders(o: Orders){
+        val id = generateOrderId()
+        ORDERS.document(id).set(o)
+    }
+
+    suspend fun generateOrderDetailId(): String{
+        val orderDetail = ORDERDETAIL.get().await().toObjects<OrderDetails>()
+        var id = ""
+        if (orderDetail == null){
+            for(o in orderDetail){
+                o.orderId = "OD1"
+            }
+        } else {
+            val size = orderDetail.size
+            id = "OD${size+1}"
+        }
+
+        return id
+    }
+
+    suspend fun setOrderDetail(od: OrderDetails){
+        val id = generateOrderDetailId()
+        ORDERDETAIL.document(id).set(od)
     }
 
 }
