@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.RC_SIGN_IN
 import com.example.spacebunsmobileapp.databinding.FragmentAccountBinding
@@ -28,6 +29,7 @@ import java.io.ByteArrayOutputStream
 class AccountFragment : Fragment() {
     //private lateinit var binding: FragmentAccountBinding
     private var _binding: FragmentAccountBinding? = null
+    private val nav by lazy { findNavController() }
     lateinit var auth: FirebaseAuth
     private lateinit var imgUri: Uri
 
@@ -65,6 +67,7 @@ class AccountFragment : Fragment() {
                     .build(),
                 RC_SIGN_IN
             )
+//            nav.navigateUp()
         }
 
         //whether user login or not
@@ -318,7 +321,8 @@ class AccountFragment : Fragment() {
                     "Welcome ${user?.displayName}",
                     Toast.LENGTH_SHORT
                 ).show()
-                showUI()
+                nav.navigateUp()
+//                showUI()
             } else {
                 Log.d("Login", "Signing in failed!")
                 Toast.makeText(
