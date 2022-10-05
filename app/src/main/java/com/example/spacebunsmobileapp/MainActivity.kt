@@ -1,9 +1,11 @@
 package com.example.spacebunsmobileapp
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.spacebunsmobileapp.data.AuthViewModel
 import com.example.spacebunsmobileapp.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -13,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val nav by lazy { supportFragmentManager.findFragmentById(R.id.host)!!.findNavController() }
-
+    private val auth: AuthViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +34,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return nav.navigateUp() || super.onSupportNavigateUp()
-    }
 
+    }
 }
