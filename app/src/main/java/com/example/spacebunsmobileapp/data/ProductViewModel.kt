@@ -147,7 +147,7 @@ class ProductViewModel: ViewModel() {
         var id = ""
         if (orderDetail == null){
             for(o in orderDetail){
-                o.orderId = "OD1"
+                o.id = "OD1"
             }
         } else {
             val size = orderDetail.size

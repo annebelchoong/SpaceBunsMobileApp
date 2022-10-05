@@ -49,6 +49,7 @@ class ConfirmPaymentFragment : Fragment() {
             order.subtotal = vm.subtotal
             order.customerId = id
             order.paymentMethod = vm.paymentMethod
+            order.orderId = vm.generateOrderId()
         }
 
         vm.setOrders(order)
@@ -59,12 +60,14 @@ class ConfirmPaymentFragment : Fragment() {
         val cartline = vm.getCartLine(uId)
         val orderD = OrderDetails()
 
-        orderD.orderId = id
+        orderD.orderId = orderId
         for (c in cartline){
             orderD.productId = c.productId
             orderD.quantity = c.quantity
             orderD.price = c.price
             orderD.productName = c.productName
+            orderD.totalPrice = c.totalPrice
+            orderD.photo = c.photo
             vm.setOrderDetail(orderD)
         }
 

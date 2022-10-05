@@ -3,8 +3,10 @@ package com.example.spacebunsmobileapp.data
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.tasks.await
 
 class CustomerViewModel : ViewModel() {
     //use live data for recycle view
@@ -14,9 +16,9 @@ class CustomerViewModel : ViewModel() {
     private val col = Firebase.firestore.collection("customers")
 
     //init code will not run until we call it
-    init {
-        col.addSnapshotListener { value, _ -> customers.value = value?.toObjects() } //_ means not using it, remove it
-    }
+//    init {
+//        col.addSnapshotListener { value, _ -> customers.value = value?.toObjects() } //_ means not using it, remove it
+//    }
 
     // ---------------------------------------------------------------------------------------------
     fun init() = Unit // void
@@ -35,6 +37,11 @@ class CustomerViewModel : ViewModel() {
         col.document(c.id).set(c)
     }
 
+   fun setAdd(add: String, userId: String){
+        col.document(userId).set(add)
+
+
+    }
     //----------------------------------------------------------------------------------------------
     private fun idExists(id: String) = customers.value?.any { it.id == id } ?: false
 

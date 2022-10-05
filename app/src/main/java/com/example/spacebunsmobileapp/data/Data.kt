@@ -84,6 +84,7 @@ data class OrderDetails(
     var productName: String = "",
     var quantity: Int = 0,
     var price: Double = 0.00,
+    var photo: Blob = Blob.fromBytes(ByteArray(0)),
 ){
     @get:Exclude
     var totalPrice: Double = 0.00
