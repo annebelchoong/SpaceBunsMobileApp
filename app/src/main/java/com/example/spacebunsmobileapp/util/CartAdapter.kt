@@ -35,7 +35,7 @@ class CartAdapter (
             holder.binding.lblProductName.text = productLine.productName
             holder.binding.lblQuantity.text = "x ${productLine.quantity}"
             var totalPrice = productLine.quantity * productLine.price
-            holder.binding.lblPrice.text = " RM ${totalPrice}"
+            holder.binding.lblPrice.text = " RM ${"%.2f".format(productLine.price)}"
             holder.binding.imageView2.setImageBlob(productLine.photo)
 
 //        holder.binding.txtCount.text = "${productLine.count} Order(s)"
