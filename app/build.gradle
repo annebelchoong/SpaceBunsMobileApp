@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each {
+            it.buildConfigField 'String', 'PublishableKey', stripePublishableKey
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -42,13 +45,15 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
-    implementation 'androidx.security:security-crypto:1.0.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.3.0'
 
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.3.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1'
+    implementation 'androidx.security:security-crypto:1.0.0'
+
     implementation 'androidx.annotation:annotation:1.2.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
     //QR Code
     //implementation 'com.github.yuriy-budiyev:code-scanner:2.1.2'
 
@@ -56,4 +61,12 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.2.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.2'
+
+    // Import Stripe
+    implementation 'com.stripe:stripe-android:14.5.0'
+    // Import Firebase AuthUI
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    // Import Firebase cloud funtions
+    implementation 'com.google.firebase:firebase-functions-ktx:19.0.2'
+
 }

@@ -20,11 +20,6 @@
         android:name="com.example.spacebunsmobileapp.ui.MenuFragment"
         android:label="Menu"
         tools:layout="@layout/fragment_menu" />
-    <fragment
-        android:id="@+id/donationFragment"
-        android:name="com.example.spacebunsmobileapp.ui.RewardFragment"
-        android:label="Reward"
-        tools:layout="@layout/fragment_reward" />
     <activity
         android:id="@+id/changeEmailActivity"
         android:name="com.example.spacebunsmobileapp.ui.ChangeEmailActivity"
@@ -60,8 +55,6 @@
         android:name="com.example.spacebunsmobileapp.ui.UpdateProfileFragment"
         android:label="fragment_update_profile"
         tools:layout="@layout/fragment_update_profile" />
-
-        tools:layout="@layout/fragment_donation" />
     <fragment
         android:id="@+id/miniDeliveryFragment"
         android:name="com.example.spacebunsmobileapp.ui.MiniDeliveryFragment"
@@ -97,5 +90,15 @@
         android:name="com.example.spacebunsmobileapp.ui.CartUpdateFragment"
         android:label="fragment_cart_update"
         tools:layout="@layout/fragment_cart_update" />
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.spacebunsmobileapp.ui.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout" />
+    <fragment
+        android:id="@+id/donationFragment"
+        android:name="com.example.spacebunsmobileapp.ui.DonationFragment"
+        android:label="Donations"
+        tools:layout="@layout/fragment_donation" />
 
 </navigation>

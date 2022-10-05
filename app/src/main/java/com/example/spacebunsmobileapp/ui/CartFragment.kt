@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
@@ -17,8 +18,11 @@ import com.example.spacebunsmobileapp.databinding.FragmentCartBinding
 import com.example.spacebunsmobileapp.util.CartAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
+import java.text.DecimalFormat
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
@@ -27,6 +31,7 @@ class CartFragment : Fragment() {
 
     private val id by lazy {arguments?.getString("id","")?: ""}
     val custId = "U001"
+    val df = DecimalFormat("#.##")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentCartBinding.inflate(inflater, container, false)
@@ -49,21 +54,28 @@ class CartFragment : Fragment() {
 
             val amount = vm.getAmount(custId)
             binding.txtAmount.text = "RM ${"%.2f".format(amount)}"
-            binding.txtVoucher.text = 10.toString()
-            var voucher = binding.txtVoucher.text.toString().toIntOrNull()?:0
-            var subtotal = (amount * (100-voucher))/100
+            var voucher = binding.txtVoucher.text.toString().toDoubleOrNull() ?: 0.00
+            var subtotal = amount - voucher
             binding.txtSubtotal.text = "RM ${"%.2f".format(subtotal)}"
-            var grandTotal = subtotal + 3
-            binding.txtGrandAmount.text = "RM ${"%.2f".format(grandTotal)}"
-            binding.lblTotalPrice.text = "RM ${"%.2f".format(grandTotal)}"
+            vm.grandTotal = subtotal + 3
+            binding.txtGrandAmount.text = "RM ${"%.2f".format(vm.grandTotal)}"
+            binding.lblTotalPrice.text = "RM ${"%.2f".format(vm.grandTotal)}"
+
         }
 
         binding.btnCheckout.setOnClickListener {
-            if (LocalTime.now().isAfter(LocalTime.parse("22:00:00")) && LocalTime.now().isBefore(
-                    LocalTime.parse("09:00:00"))) {
-//                nav.navigate(R.id.dateTimeFragment)
+            if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
+
             }else{
-                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnApply.setOnClickListener {
+//            applyVoucher(binding.edtVoucher.text.toString())
+            lifecycleScope.launch {
+                applyVoucher(binding.edtVoucher.text.toString().uppercase().trim())
+
             }
         }
 
@@ -74,6 +86,35 @@ class CartFragment : Fragment() {
         return binding.root
     }
 
+    private suspend fun applyVoucher(code: String) {
+        val context = requireActivity().application
+        val voucher = vm.getVoucher()!!
+
+        if (code.isEmpty()) {
+            Toast.makeText(context, "No voucher!", Toast.LENGTH_SHORT).show()
+        }
+            for (v in voucher) {
+                if (code == v.voucherCode) {
+                    var total = vm.getAmount(custId)
+                    var discount = v.discountPercentage / 100
+                    var deduct = total * discount
+//                binding.txtVoucher.text = (total * (v.discountPercentage/100 )).toString()
+                    binding.txtVoucher.text = df.format(deduct).toString()
+                    var subtotal = total - deduct
+                    binding.txtSubtotal.text = "RM ${"%.2f".format(subtotal)}"
+                    vm.grandTotal = subtotal + 3
+                    binding.txtGrandAmount.text = "RM ${"%.2f".format(vm.grandTotal)}"
+                    binding.lblTotalPrice.text = "RM ${"%.2f".format(vm.grandTotal)}"
+                }
+                else{
+                    Toast.makeText(context, "Voucher not available!", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+    }
+
+
+
     // for now user use string, need to change to user
     private fun delete(id:String, user: String){
         vm.delete(id, user)
@@ -81,5 +122,7 @@ class CartFragment : Fragment() {
         nav.navigateUp()
         nav.navigate(R.id.cartFragment)
     }
+
+
 
 }
