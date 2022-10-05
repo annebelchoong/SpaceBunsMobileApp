@@ -13,6 +13,17 @@ data class Order(
     var id: String=""
 )
 
+data class Customer (
+    @DocumentId
+    var id      : String = "",
+    var email   : String = "",
+    var password: String = "",
+    var name    : String = "",
+    var phone   : String = "",
+    var address : String = "",
+    var photo   : Blob   = Blob.fromBytes(ByteArray(0)),
+)
+
 data class Menu(
     @DocumentId
     var id: String = "",
