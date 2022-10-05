@@ -7,28 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".ui.ProductDetailFragment" >
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:background="@drawable/rounded_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBack">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="410dp"
+            android:layout_height="410dp"
+            android:layout_marginTop="16dp"
+            android:scaleX="1"
+            android:scaleY="1"
+            tools:src="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/txtProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="XXX"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/txtDesc"
@@ -46,22 +54,24 @@
         android:id="@+id/txtTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:text="0.00"
+        android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="76dp" />
 
     <EditText
         android:id="@+id/txtQuantity"
-        android:layout_width="120dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="numberSigned"
+        android:text="1"
+        android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="@+id/txtTotalPrice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtTotalPrice"
         app:layout_constraintTop_toTopOf="@+id/txtTotalPrice"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -71,7 +81,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="Add To Cart"
-        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/txtQuantity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtQuantity"
@@ -81,11 +90,28 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:text="Return To Menu"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtQuantity" />
+        android:layout_marginStart="16dp"
+        android:background="@color/fui_transparent"
+        android:minWidth="0dp"
+        android:paddingHorizontal="0dp"
+        app:icon="@drawable/ic_round_arrow_back_24"
+        app:iconPadding="0dp"
+        app:iconTint="@color/gold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="RM"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtTotalPrice"
+        app:layout_constraintEnd_toStartOf="@+id/txtTotalPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtTotalPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
