@@ -12,6 +12,7 @@ import java.time.LocalDateTime
 class ProductViewModel: ViewModel() {
 
     var productId = ""
+    var grandTotal = 0.00
     var dateTime = LocalDateTime.now()
     val CART = Firebase.firestore.collection("usersTest")
     private val products = MutableLiveData<List<Product>>()
@@ -99,6 +100,15 @@ class ProductViewModel: ViewModel() {
         }
 
         return final
+    }
+
+    suspend fun getVoucher(): List<Voucher>{
+        val vouchers = VOUCHERS
+            .get()
+            .await()
+            .toObjects<Voucher>()
+
+        return vouchers
     }
 
 }
