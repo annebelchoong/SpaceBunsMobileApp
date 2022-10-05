@@ -14,7 +14,7 @@ class ProductViewModel: ViewModel() {
     var productId = ""
     var grandTotal = 0.00
     var dateTime = LocalDateTime.now()
-    val CART = Firebase.firestore.collection("usersTest")
+    val CART = Firebase.firestore.collection("customers")
     private val products = MutableLiveData<List<Menu>>()
     private val cart = MutableLiveData<List<Cart>>()
 
@@ -49,16 +49,17 @@ class ProductViewModel: ViewModel() {
     fun getAllAll() = products
 
     // for cart
-    fun setCart(c:Cart, u:User){
-        CART.document(u.customerId).collection("cart").document(c.productId).set(c)
+//    fun setCart(c:Cart, u:User){
+        fun setCart(c:Cart, u:String){
+        CART.document(u).collection("cart").document(c.productId).set(c)
     }
 
-    suspend fun getUserId(id: String): User? {
+    suspend fun getUserId(id: String): Customer? {
         return CUST // do not have count, only id and name
             .document(id)
             .get()
             .await()
-            .toObject<User>()
+            .toObject<Customer>()
     }
 
 
@@ -67,7 +68,7 @@ class ProductViewModel: ViewModel() {
         val user = getUserId(u)!!
 
         val getProducts = CART
-            .document(user.customerId)
+            .document(user.id)
             .collection("cart")
             .get()
             .await()
@@ -87,7 +88,7 @@ class ProductViewModel: ViewModel() {
         val user = getUserId(u)!!
 
         val getProducts = CART
-            .document(user.customerId)
+            .document(user.id)
             .collection("cart")
             .get()
             .await()
