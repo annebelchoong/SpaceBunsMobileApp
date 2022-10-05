@@ -15,43 +15,72 @@
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/bottomNavBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/nav" />
 
-    <!--Edit text for entering the amount-->
-    <EditText
-        android:id="@+id/idEdtAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Amount to be Paid"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/idTVStatus"
-        tools:layout_editor_absoluteX="20dp" />
+<!--    <Button-->
+<!--        android:id="@+id/loginButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="50dp"-->
+<!--        android:layout_marginBottom="200dp"-->
+<!--        android:text="Sign in"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.494"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.499" />-->
 
-    <!--button for making a payment-->
-    <Button
-        android:id="@+id/idBtnPay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtAmount"
-        android:layout_centerInParent="true"
-        android:text="Make Payment"
-        app:layout_constraintBottom_toBottomOf="@+id/host"
-        app:layout_constraintEnd_toStartOf="@+id/host"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/greeting"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="400dp"-->
+<!--        android:text="Hello"-->
+<!--        android:textAlignment="center"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/checkoutSummary"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/host" />-->
 
-    <!--text view for displaying payment status-->
-    <TextView
-        android:id="@+id/idTVStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idBtnPay"
-        android:padding="5dp"
-        android:textAlignment="center"
-        android:textColor="@color/purple_200"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/idBtnPay" />
+<!--    <TextView-->
+<!--        android:id="@+id/checkoutSummary"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginBottom="180dp"-->
+<!--        android:paddingVertical="20dp"-->
+<!--        android:text="Please pay 88myr"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/gold"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/host"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/greeting"-->
+<!--        tools:layout_editor_absoluteX="0dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/paymentmethod"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingVertical="20dp"-->
+<!--        android:text="select payment method"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/host"-->
+<!--        app:layout_constraintStart_toStartOf="@id/host"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/checkoutSummary" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/payButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Click to Pay"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/host"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/host"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/host"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/paymentmethod" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"

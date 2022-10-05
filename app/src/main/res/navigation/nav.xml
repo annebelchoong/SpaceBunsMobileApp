@@ -51,7 +51,8 @@
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
-        android:id="@+id/checkoutTestFragment"
-        android:name="com.example.spacebunsmobileapp.ui.CheckoutTestFragment"
-        android:label="CheckoutTestFragment" />
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.spacebunsmobileapp.ui.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout" />
 </navigation>

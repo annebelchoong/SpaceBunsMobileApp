@@ -1,5 +1,7 @@
 package com.example.spacebunsmobileapp.data
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
@@ -8,8 +10,9 @@ import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
 
-class ProductViewModel: ViewModel() {
+class ProductViewModel() : ViewModel() {
 
+    //    val applicationContext =
     var productId = ""
     var custId = "U001"
     val CART = Firebase.firestore.collection("usersTest").document(custId).collection("cart")
@@ -42,16 +45,19 @@ class ProductViewModel: ViewModel() {
     fun getAllAll() = products
 
     // for cart
-    fun setCart(c:Cart){
+    fun setCart(c: Cart) {
         CART.document(c.productId).set(c)
     }
 
-    suspend fun getCust(id: String): User?{
+    suspend fun getCust(id: String): User? {
         return CUST
             .document(id)
             .get()
             .await()
             .toObject<User>()
     }
+
+
+
 
 }

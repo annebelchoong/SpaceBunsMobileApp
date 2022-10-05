@@ -22,7 +22,7 @@ class RewardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRewardBinding.inflate(inflater, container, false)
-        binding.btnCheckoutTest.setOnClickListener { nav.navigate(R.id.checkoutTestFragment) }
+        binding.btnCheckoutTest.setOnClickListener { nav.navigate(R.id.checkoutFragment) }
 
 //        PaymentConfiguration.init(applicationContext,resources.getString(R.string.stripe_publishable_key))
 

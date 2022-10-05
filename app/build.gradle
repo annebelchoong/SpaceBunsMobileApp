@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each {
+            it.buildConfigField 'String', 'PublishableKey', stripePublishableKey
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,8 +49,30 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:24.3.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1'
 
-    implementation 'com.razorpay:checkout:1.6.4'
-    implementation 'com.stripe:stripe-android:14.2.1'
-    implementation 'com.paypal.sdk:paypal-android-sdk:2.14.2'
+//    implementation 'com.razorpay:checkout:1.6.4'
+//    implementation 'com.stripe:stripe-android:14.2.1'
+//    implementation 'com.paypal.sdk:paypal-android-sdk:2.14.2'
+
+    // Import Stripe
+    implementation 'com.stripe:stripe-android:14.5.0'
+
+//    // Import Firebase
+//    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
+//    implementation 'com.google.firebase:firebase-auth-ktx:21.0.8'
+
+    implementation 'androidx.security:security-crypto:1.0.0'
+
+//    // implementation 'com.google.firebase:firebase-functions:19.0.2'
+    implementation 'com.google.firebase:firebase-functions-ktx:19.0.2'
+////    implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
+
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//    implementation 'com.google.firebase:firebase-auth-ktx:21.0.8'
+//    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+////    implementation 'com.google.firebase:firebase-analytics-ktx'
+//    implementation 'com.android.support:multidex:1.0.3' // add this line
 
 }
