@@ -40,6 +40,7 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -337,5 +338,6 @@ private fun changeEmail() {
 
     private fun showUI() {
         TODO("Here should show the UI if the user has logged in")
+
     }
 }

@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     private val nav by lazy { supportFragmentManager.findFragmentById(R.id.host)!!.findNavController() }
     private val auth: AuthViewModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -25,15 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         // move from one fragment to another using the bottom nav
         binding.bottomNavBar.setupWithNavController(nav)
-
     }
     private fun fetchdata() {
         TODO("Not yet implemented")
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return nav.navigateUp() || super.onSupportNavigateUp()
-
     }
 }
