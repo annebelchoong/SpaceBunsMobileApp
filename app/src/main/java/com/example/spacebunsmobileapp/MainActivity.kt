@@ -7,7 +7,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.spacebunsmobileapp.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
-var RC_SIGN_IN = 1
 
 class MainActivity : AppCompatActivity() {
 
