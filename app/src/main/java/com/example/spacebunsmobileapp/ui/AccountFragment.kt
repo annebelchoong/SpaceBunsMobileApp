@@ -115,8 +115,7 @@ class AccountFragment : Fragment() {
     }
 
     private fun btnProfile() {
-//        var intent = Intent(view.context, ProfileFragment::class.java)
-//        startActivity(intent)
+        nav.navigate(R.id.profileFragment)
     }
 
 //    private fun scanQRCode() {

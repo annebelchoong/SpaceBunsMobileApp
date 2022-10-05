@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.databinding.FragmentAccountBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProfileBinding
@@ -24,6 +25,7 @@ class ProfileFragment : Fragment() {
     lateinit var auth : FirebaseAuth
     private lateinit var imgUri : Uri
 
+    private val nav by lazy { findNavController() }
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -66,6 +68,13 @@ class ProfileFragment : Fragment() {
         binding.imgUser.setOnClickListener {
             goToCamera()
         }
+
+        binding.btnUpdateProfile.setOnClickListener { updateProfile() }
+
+    }
+
+    private fun updateProfile() {
+        nav.navigate(R.id.updateProfileFragment)
     }
 
     private fun goToCamera() {
