@@ -10,9 +10,7 @@ import com.google.firebase.ktx.Firebase
 import java.time.LocalDateTime
 import java.util.*
 
-data class Order(
-    var id: String=""
-)
+
 
 data class Customer(
     @DocumentId
@@ -58,8 +56,44 @@ data class Voucher(
     var discountPercentage: Double = 0.0,
     var usedCount: Int = 0,
 )
+
+data class Orders(
+    @DocumentId
+    var orderId: String = "",
+//    var customerId: String = "",
+    var date: Date = Date(),
+    var address: String = "",
+    var orderStatusId: String = "",
+    var paymentMethod: String = "",
+    var subtotal: Double = 0.00,
+    var totalPrice: Double = 0.00,
+    var voucherId: String = "",
+    val deliveryFee: Double = 3.00,
+    var customerId: String = "",
+
+    ) {
+    @get:Exclude
+    var count : Int = 0
+}
+
+data class OrderDetails(
+    @DocumentId
+    var id: String = "",
+    var orderId: String = "",
+    var productId: String = "",
+    var productName: String = "",
+    var quantity: Int = 0,
+    var price: Double = 0.00,
+){
+    @get:Exclude
+    var totalPrice: Double = 0.00
+}
+
+
 val PRODUCTS = Firebase.firestore.collection("products")
 //val CART = Firebase.firestore.collection("usersTest").document("U001").collection("cart")
 val CUST = Firebase.firestore.collection("customers")
 val VOUCHERS = Firebase.firestore.collection("vouchers")
+val ORDERS = Firebase.firestore.collection("orders")
+val ORDERDETAIL = Firebase.firestore.collection("orderDetails")
 
