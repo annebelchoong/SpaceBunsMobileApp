@@ -60,7 +60,7 @@
         android:name="com.example.spacebunsmobileapp.ui.MiniDeliveryFragment"
         android:label="fragment_mini_delivery"
         tools:layout="@layout/fragment_mini_delivery" />
-    <fragment
+    <dialog
         android:id="@+id/deliveryFragment"
         android:name="com.example.spacebunsmobileapp.ui.DeliveryFragment"
         android:label="fragment_delivery"
@@ -75,7 +75,7 @@
         android:name="com.example.spacebunsmobileapp.ui.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
-    <fragment
+    <dialog
         android:id="@+id/dateTimeFragment"
         android:name="com.example.spacebunsmobileapp.ui.DateTimeFragment"
         android:label="fragment_date_time"
@@ -95,5 +95,6 @@
         android:name="com.example.spacebunsmobileapp.ui.DonationFragment"
         android:label="Donations"
         tools:layout="@layout/fragment_donation" />
+
 
 </navigation>
