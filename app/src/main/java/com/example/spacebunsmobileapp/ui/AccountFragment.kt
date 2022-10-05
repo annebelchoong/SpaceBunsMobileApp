@@ -1,5 +1,9 @@
 package com.example.spacebunsmobileapp.ui
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -29,8 +33,13 @@ class AccountFragment : Fragment() {
     lateinit var auth: FirebaseAuth
     private lateinit var imgUri: Uri
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentAccountBinding.inflate(inflater, container, false)
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -115,10 +124,10 @@ class AccountFragment : Fragment() {
 //        startActivity(intent)
 //    }
 
-    private fun changeEmail() {
-        val intent = Intent(context, ChangeEmailActivity::class.java)
-        startActivity(intent)
-    }
+private fun changeEmail() {
+    val intent = Intent(context, ChangeEmailActivity::class.java)
+    startActivity(intent)
+}
 
     private fun changePass() {
         auth = FirebaseAuth.getInstance()
