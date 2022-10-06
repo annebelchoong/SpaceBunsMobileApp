@@ -49,6 +49,13 @@ data class Cart(
 //    var product: Cart = Cart()
 }
 
+data class User(
+    @DocumentId
+    var customerId: String = ""
+
+)
+
+
 data class Voucher(
     @DocumentId
     var voucherId: String = "",

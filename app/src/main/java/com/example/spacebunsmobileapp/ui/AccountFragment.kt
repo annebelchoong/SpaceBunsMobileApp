@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -35,11 +36,20 @@ class AccountFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            binding.imgUser.setImageURI(it.data?.data)  // result is path
+        }
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -90,8 +100,10 @@ class AccountFragment : Fragment() {
         }
 
         binding.imgUser.setOnClickListener {
-            goToCamera()
+            select()
         }
+
+
 
         binding.btnLogout.setOnClickListener {
             btnLogout()
@@ -115,8 +127,7 @@ class AccountFragment : Fragment() {
     }
 
     private fun btnProfile() {
-//        var intent = Intent(view.context, ProfileFragment::class.java)
-//        startActivity(intent)
+        nav.navigate(R.id.profileFragment)
     }
 
 //    private fun scanQRCode() {
@@ -254,14 +265,21 @@ private fun changeEmail() {
         }
     }
 
-    private fun goToCamera() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
-            activity?.packageManager?.let {
-                intent?.resolveActivity(it).also {
-                    startActivityForResult(intent, REQ_CAM)
-                }
-            }
-        }
+//    private fun goToCamera() {
+//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
+//            activity?.packageManager?.let {
+//                intent?.resolveActivity(it).also {
+//                    startActivityForResult(intent, REQ_CAM)
+//                }
+//            }
+//        }
+//    }
+
+    private fun select() {
+        // TODO: Select file
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        launcher.launch(intent)
     }
 
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -338,5 +356,6 @@ private fun changeEmail() {
 
     private fun showUI() {
         TODO("Here should show the UI if the user has logged in")
+
     }
 }
