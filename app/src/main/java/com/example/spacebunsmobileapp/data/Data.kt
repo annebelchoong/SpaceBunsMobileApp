@@ -53,6 +53,7 @@ data class Cart(
 data class User(
     @DocumentId
     var customerId: String = ""
+
 )
 
 data class Voucher(
