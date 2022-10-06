@@ -75,13 +75,13 @@ class CartFragment : Fragment() {
         binding.btnGoBack.setOnClickListener { nav.navigate(R.id.menuFragment) }
 
         binding.btnCheckout.setOnClickListener {
-            if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
+//            if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
                 if (user != null) {
                     nav.navigate(R.id.confirmPaymentFragment, bundleOf("id" to user.uid))
                 }
-            }else{
-                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
-            }
+//            }else{
+//                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
+//            }
         }
 
         binding.btnApply.setOnClickListener {
@@ -128,10 +128,10 @@ class CartFragment : Fragment() {
                     binding.txtGrandAmount.text = "RM ${"%.2f".format(vm.grandTotal)}"
                     binding.lblTotalPrice.text = "RM ${"%.2f".format(vm.grandTotal)}"
                 }
-                else{
-                    Toast.makeText(context, "Voucher not available!", Toast.LENGTH_SHORT).show()
 
                 }
+        if (binding.txtVoucher.text != null && code.isNotEmpty()){
+                Toast.makeText(context, "Voucher not available!", Toast.LENGTH_SHORT).show()
             }
     }
 

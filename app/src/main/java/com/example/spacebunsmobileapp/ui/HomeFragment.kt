@@ -25,18 +25,14 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.btnOrdernow.setOnClickListener {
-            nav.popBackStack()
-            nav.navigate(R.id.menuFragment)
+//            nav.popBackStack()
+            nav.navigate(R.id.deliveryFragment)
         }
         binding.btnDelivery.setOnClickListener {
             nav.navigate(R.id.deliveryFragment)
         }
         binding.btnPickup.setOnClickListener {
-            if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00"))) {
-                nav.navigate(R.id.dateTimeFragment)
-            }else{
-                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
-            }
+            nav.navigate(R.id.dateTimeFragment)
     }
 
 

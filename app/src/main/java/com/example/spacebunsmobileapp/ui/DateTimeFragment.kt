@@ -15,9 +15,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.spacebunsmobileapp.R
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentDateTimeBinding
+import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
@@ -81,9 +83,13 @@ class DateTimeFragment : DialogFragment() {
         }
 
         binding.btnOrderNowNow.setOnClickListener {
-            nav.popBackStack()
-            nav.popBackStack()
-            nav.navigate(R.id.menuFragment)
+            if (LocalTime.now().isBefore(LocalTime.parse("22:00:00")) && LocalTime.now().isAfter(LocalTime.parse("09:00:00")) && binding.spnTime.selectedItem != LocalDateTime.now()) {
+                nav.popBackStack()
+                nav.popBackStack()
+                nav.navigate(R.id.menuFragment)
+        } else {
+                Snackbar.make(binding.root, "Sorry! We are closed!", Snackbar.LENGTH_SHORT).show()
+            }
         }
 
         return binding.root
