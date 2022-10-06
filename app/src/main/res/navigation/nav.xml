@@ -100,6 +100,14 @@
         android:name="com.example.spacebunsmobileapp.ui.ConfirmPaymentFragment"
         android:label="Cofnrim Payment"
         tools:layout="@layout/fragment_confirm_payment" />
-
+    <fragment
+        android:id="@+id/donationEventDetailFragment"
+        android:name="com.example.spacebunsmobileapp.ui.DonationEventDetailFragment"
+        android:label="Donation Event Detail" />
+    <fragment
+        android:id="@+id/makeDonationFragment"
+        android:name="com.example.spacebunsmobileapp.ui.MakeDonationFragment"
+        android:label="Make Donation"
+        tools:layout="@layout/fragment_make_donation" />
 
 </navigation>

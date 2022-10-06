@@ -29,7 +29,7 @@ import com.stripe.android.view.BillingAddressFields
 class CheckoutFragment : Fragment() {
     private lateinit var binding: FragmentCheckoutBinding
     private val nav by lazy { findNavController() }
-    private var currentUserT: FirebaseUser? = null
+    private var currentUserT: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var paymentSession: PaymentSession
     private lateinit var selectedPaymentMethod: PaymentMethod
 //    private var applicationContext: Context? = null
