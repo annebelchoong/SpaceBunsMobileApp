@@ -54,13 +54,13 @@
                     android:id="@+id/icon_notVerify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_not_verified" />
+                    android:background="@drawable/ic_round_not_verified_24" />
 
                 <ImageView
                     android:id="@+id/icon_verify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_verified" />
+                    android:background="@drawable/ic_round_verified_24" />
 
             </RelativeLayout>
 
