@@ -116,7 +116,7 @@ data class DonationEventDetail(
     @DocumentId
     var donationId: String = "",
     var donorName: String = "",
-    var donationAmount: Double = 0.00,
+    var donationAmount: Int = 0,
     var donationEventId: String = "",
     var donationDate: Date = Date() // current Date
 ) {

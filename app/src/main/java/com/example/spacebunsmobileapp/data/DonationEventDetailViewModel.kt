@@ -66,7 +66,7 @@ class DonationEventDetailViewModel : ViewModel() {
 //        else ""
 //
         e += if (d.donationAmount < 1) "- Donation Amount must be more than one.\n"
-        else if (d.donationAmount == 0.00) "- Donation Amount cannot be zero.\n"
+        else if (d.donationAmount == 0) "- Donation Amount cannot be zero.\n"
         else ""
 
         return e
