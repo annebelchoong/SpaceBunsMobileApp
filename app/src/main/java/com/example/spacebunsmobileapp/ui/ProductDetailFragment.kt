@@ -5,23 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.spacebunsmobileapp.util.ProductAdapter
+import com.example.spacebunsmobileapp.util.cropToBlob
+import com.example.spacebunsmobileapp.util.setImageBlob
 import com.example.spacebunsmobileapp.R
-import com.example.spacebunsmobileapp.data.CART
 import com.example.spacebunsmobileapp.data.Cart
+import com.example.spacebunsmobileapp.data.Customer
 import com.example.spacebunsmobileapp.data.ProductViewModel
 import com.example.spacebunsmobileapp.databinding.FragmentHomeBinding
 import com.example.spacebunsmobileapp.databinding.FragmentProductDetailBinding
-import com.example.spacebunsmobileapp.util.setImageBlob
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class ProductDetailFragment : Fragment() {
     private lateinit var binding: FragmentProductDetailBinding
     private val nav by lazy { findNavController() }
     private val vm: ProductViewModel by activityViewModels()
+    lateinit var auth: FirebaseAuth
+
 
     private val id by lazy {arguments?.getString("id","")?: ""}
 
@@ -30,13 +36,19 @@ class ProductDetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProductDetailBinding.inflate(inflater, container, false)
 
+        binding.btnBack.setOnClickListener {
+            nav.navigate(R.id.menuFragment)
+        }
+
+
         lifecycleScope.launch {
             val product = vm.get(id)!!
             binding.imageView3.setImageBlob(product.photo)
             binding.txtProductName.text = product.name
             binding.txtDesc.text = product.desc
-            vm.productId = product.productId
-            vm.custId = "U001"
+            vm.productId = product.id
+            binding.txtTotalPrice.text = " ${"%.2f".format(product.price)}"
+
         }
 
         binding.btnAddToCart.setOnClickListener {
@@ -50,14 +62,21 @@ class ProductDetailFragment : Fragment() {
 
     private fun addToCart() {
             val c = Cart()
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
 
             c.productId = vm.productId
             c.productName = binding.txtProductName.text.toString()
             c.quantity = binding.txtQuantity.text.toString().toIntOrNull() ?: 1
-            c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull() ?: 0.00
+            c.price = binding.txtTotalPrice.text.toString().toDoubleOrNull()?: 0.00
             c.totalPrice = c.quantity * c.price
+            c.photo = binding.imageView3.cropToBlob(300, 300)
+//            u.customerId = "U001"
 
-            vm.setCart(c)
+        if (user != null) {
+            vm.setCart(c, user.uid)
+        }
 
             nav.navigateUp()
 

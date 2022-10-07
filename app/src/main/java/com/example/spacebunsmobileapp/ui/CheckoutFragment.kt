@@ -29,7 +29,7 @@ import com.stripe.android.view.BillingAddressFields
 class CheckoutFragment : Fragment() {
     private lateinit var binding: FragmentCheckoutBinding
     private val nav by lazy { findNavController() }
-    private var currentUserT: FirebaseUser? = null
+    private var currentUserT: FirebaseUser? = FirebaseAuth.getInstance().currentUser
     private lateinit var paymentSession: PaymentSession
     private lateinit var selectedPaymentMethod: PaymentMethod
 //    private var applicationContext: Context? = null
@@ -63,20 +63,20 @@ class CheckoutFragment : Fragment() {
             "pk_test_51LWbMdCffsYKlOgZJQu5OlKPoEe978IKUuzKJjwcW0ZDwb46LaVT09D3svdGTvaWoavzzCTqo9fM7DztaOL8dSGu00MhmVJabg"
         )
 
-        binding.loginButton.setOnClickListener {
-            // login to firebase
-            val providers = arrayListOf(
-                AuthUI.IdpConfig.EmailBuilder().build()
-            )
-
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setAvailableProviders(providers)
-                    .build(),
-                RC_SIGN_IN
-            )
-        }
+//        binding.loginButton.setOnClickListener {
+//            // login to firebase
+//            val providers = arrayListOf(
+//                AuthUI.IdpConfig.EmailBuilder().build()
+//            )
+//
+//            startActivityForResult(
+//                AuthUI.getInstance()
+//                    .createSignInIntentBuilder()
+//                    .setAvailableProviders(providers)
+//                    .build(),
+//                RC_SIGN_IN
+//            )
+//        }
 
         binding.payButton.setOnClickListener {
             confirmPayment(selectedPaymentMethod.id!!)

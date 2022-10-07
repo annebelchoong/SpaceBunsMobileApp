@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Space Buns Mobile App</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="Category">
+        <item>Chicken</item>
+        <item>Beef</item>
+        <item>Lamb</item>
+        <item>Fish</item>
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

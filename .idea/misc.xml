@@ -18,21 +18,69 @@
         <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/fragment_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/layout/fragment_reward.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Downloads/Mobile Application Development/SpaceBun/SpaceBunsMobileApp/app/src/main/res/menu/bottom_nav.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2075" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_error.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_info.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_not_verified.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_round_account_circle_24.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_round_arrow_back_24.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_round_card_giftcard_24.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_round_delete_24.xml" value="0.1925" />
+        <entry key="app/src/main/res/drawable/ic_round_edit_24.xml" value="0.1925" />
+        <entry key="app/src/main/res/drawable/ic_round_fastfood_24.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_round_home_24.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/ic_round_location_on_24.xml" value="0.2275" />
+        <entry key="app/src/main/res/drawable-v24/circular_progressbar.xml" value="0.388" />
+        <entry key="app/src/main/res/drawable-v24/ic_not_verified.xml" value="0.399" />
+        <entry key="app/src/main/res/drawable-v24/ic_verified.xml" value="0.388" />
         <entry key="app/src/main/res/drawable/round_rectang.xml" value="0.3725" />
         <entry key="app/src/main/res/drawable/round_rectangle.xml" value="0.3725" />
         <entry key="app/src/main/res/drawable/round_rectangle_stroke.xml" value="0.1805" />
+        <entry key="app/src/main/res/drawable/rounded_rectangle_white.xml" value="0.316" />
         <entry key="app/src/main/res/drawable/shadow.xml" value="0.3755" />
         <entry key="app/src/main/res/drawable/tab_color_selector.xml" value="0.3755" />
         <entry key="app/src/main/res/drawable/top_rounded_rectangle.xml" value="0.3725" />
+        <entry key="app/src/main/res/drawable/top_side_rounded_rectangle_gold.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/top_side_rounded_rectangle_white.xml" value="0.316" />
         <entry key="app/src/main/res/drawable/two_side_rounded_rectangle.xml" value="0.3725" />
+        <entry key="app/src/main/res/layout/activity_change_email.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_code_scanner.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.30462962962962964" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.19479166666666667" />
+        <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.4433084908568967" />
+        <entry key="app/src/main/res/layout/fragment_cart_update.xml" value="0.24815673828125" />
+        <entry key="app/src/main/res/layout/fragment_checkout.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_date_time.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/fragment_delivery.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/fragment_donation.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.45262502034505214" />
         <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_checkout.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_donation.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_donation_event_detail.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.30462962962962964" />
+        <entry key="app/src/main/res/layout/fragment_make_donation.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.35833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_pickup.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.36041666666666666" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.8063541198704374" />
+        <entry key="app/src/main/res/layout/fragment_reward.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_update_profile.xml" value="0.16417272338606242" />
+        <entry key="app/src/main/res/layout/item_branch.xml" value="0.2954254150390623" />
+        <entry key="app/src/main/res/layout/item_product.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/item_product_line.xml" value="0.38887939453125003" />
         <entry key="app/src/main/res/layout/fragment_menu_item.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_reward.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_update_profile.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/item_donation.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/item_donation_event.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/round_rectangle.xml" value="0.32685185185185184" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.35833333333333334" />
       </map>
